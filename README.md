@@ -438,4 +438,4 @@ animation_speech/
 
 ## License
 
-Free to use and modify.
+This project is licensed under the [GNU General Public License v3.0](LICENSE).
