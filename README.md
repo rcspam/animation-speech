@@ -3,6 +3,12 @@
 Configurable transparent overlay for Wayland that displays visual animations during speech. Controlled via UNIX signals, making it easy to integrate with any TTS, STT, or audio backend.
 
 <p align="center">
+  <img src="overlay-screen.png" alt="Overlay animation on desktop" width="520">
+  <br>
+  <em>Transparent overlay with rounded background — displayed above all windows</em>
+</p>
+
+<p align="center">
   <img src="screenshot.png" alt="Visual selector (--choose)" width="1154">
   <br>
   <em>Interactive visual selector (<code>--choose</code>) — all animations, colors, and parameters are fully configurable</em>
