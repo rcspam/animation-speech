@@ -52,17 +52,6 @@ cd animation-speech-1.2.0
 ./install.sh --uninstall  # uninstall
 ```
 
-### From source
-
-```bash
-git clone https://github.com/rapha/animation-speech.git
-cd animation-speech
-./animation-speech.py     # run directly (dev mode)
-# or
-make build                # build zipapp → animation-speech.pyz
-./install.sh              # install
-```
-
 ### Dependencies
 
 **Debian/Ubuntu:**
