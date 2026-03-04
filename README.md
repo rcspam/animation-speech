@@ -2,6 +2,8 @@
 
 Configurable transparent overlay for Wayland that displays visual animations during speech. Controlled via UNIX signals, making it easy to integrate with any TTS, STT, or audio backend.
 
+*Easy to integrate into your Bash or Python scripts.*
+
 <p align="center">
   <img src="overlay-screen.png" alt="Overlay animation on desktop" width="520">
   <br>
