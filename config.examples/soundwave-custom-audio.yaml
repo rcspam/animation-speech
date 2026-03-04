@@ -1,0 +1,36 @@
+# Configuration animation-speech
+# Générée par le sélecteur visuel
+
+animation_type: soundwave
+position: bottom
+width: 740
+height: 90
+colors:
+  background: '#00000000'
+  primary: '#191919e5'
+  secondary: '#66666699'
+background:
+  enabled: false
+  color: '#33333fd8'
+  padding: 10
+  border_width: 0
+  border_color: '#ffffff7f'
+animation:
+  fps: 60
+  intensity: 1.0
+  wave_frequency: 2.5
+  bar_count: 120
+  bar_width: 2
+  bar_spacing: 1
+audio:
+  enabled: true
+  sensitivity: 1.5
+  smoothing: 0.3
+layer:
+  layer: overlay
+  exclusive_zone: 0
+  margin:
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0

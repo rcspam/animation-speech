@@ -1,0 +1,41 @@
+# Animation circulaire modulée par le microphone
+
+animation_type: circular
+
+position: center
+
+width: 800
+height: 200
+
+colors:
+  background: [0.0, 0.0, 0.0, 0.0]
+  primary: [0.3, 0.8, 1.0, 0.9]
+  secondary: [1.0, 0.4, 0.6, 0.7]
+
+# Fond arrondi semi-transparent (style capsule)
+background:
+  enabled: true
+  color: [0.2, 0.2, 0.25, 0.85]
+  padding: 10
+
+animation:
+  fps: 60
+  intensity: 1.0
+  circle_count: 15
+  circle_direction: outward   # outward, inward, ping-pong
+  circle_spacing: 12
+  circle_speed: 1.5
+
+audio:
+  enabled: true
+  sensitivity: 1.5
+  smoothing: 0.3
+
+layer:
+  layer: overlay
+  exclusive_zone: 0
+  margin:
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0

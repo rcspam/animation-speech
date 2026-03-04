@@ -1,0 +1,31 @@
+# Build artifacts
+*.pyz
+*.deb
+*.tar.gz
+.zipapp-build/
+.dist-build/
+debian/build/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Compiled translations
+locales/*/LC_MESSAGES/*.mo
+locales/*.pot
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Misc
+firebase-debug.log
+messages.mo
+
+# OS
+.DS_Store
+Thumbs.db

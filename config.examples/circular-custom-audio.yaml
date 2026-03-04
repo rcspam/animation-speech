@@ -1,0 +1,35 @@
+# Configuration animation-speech
+# Générée par le sélecteur visuel
+
+animation_type: circular
+position: bottom
+width: 200
+height: 200
+colors:
+  background: '#00000000'
+  primary: '#4cccffe5'
+  secondary: '#ff6699b2'
+background:
+  enabled: false
+  color: '#33333fd8'
+  padding: 10
+  border_width: 0
+  border_color: '#ffffff7f'
+animation:
+  fps: 60
+  intensity: 1.0
+  circle_count: 15
+  circle_spacing: 12
+  circle_speed: 1.4
+audio:
+  enabled: true
+  sensitivity: 0.3
+  smoothing: 0.3
+layer:
+  layer: overlay
+  exclusive_zone: 0
+  margin:
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0

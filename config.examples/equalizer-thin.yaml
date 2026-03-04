@@ -1,0 +1,36 @@
+# Configuration animation-speech
+# Générée par le sélecteur visuel
+
+animation_type: equalizer
+position: bottom
+width: 1000
+height: 80
+colors:
+  background: '#00000000'
+  primary: '#262626e5'
+  secondary: '#4c4c4cb2'
+background:
+  enabled: true
+  color: '#33333fd8'
+  padding: 10
+  border_width: 0
+  border_color: '#ffffff7f'
+animation:
+  fps: 60
+  smoothing: 0.25
+  intensity: 1.1
+  bar_count: 60
+  bar_width: 8
+  bar_spacing: 4
+audio:
+  enabled: true
+  sensitivity: 1.5
+  smoothing: 0.3
+layer:
+  layer: overlay
+  exclusive_zone: 0
+  margin:
+    top: 0
+    bottom: 25
+    left: 0
+    right: 0

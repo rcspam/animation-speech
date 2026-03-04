@@ -1,0 +1,38 @@
+# Animation particules modulée par le microphone
+
+animation_type: particles
+
+position: center
+
+width: 400
+height: 400
+
+colors:
+  background: [0.0, 0.0, 0.0, 0.0]
+  primary: [1.0, 0.4, 0.6, 0.9]
+  secondary: [0.6, 0.4, 1.0, 0.8]
+
+# Fond arrondi semi-transparent (style capsule)
+background:
+  enabled: true
+  color: [0.2, 0.2, 0.25, 0.85]
+  padding: 10
+
+animation:
+  fps: 60
+  smoothing: 0.3
+  intensity: 1.5
+
+audio:
+  enabled: true
+  sensitivity: 1.5
+  smoothing: 0.3
+
+layer:
+  layer: overlay
+  exclusive_zone: 0
+  margin:
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0

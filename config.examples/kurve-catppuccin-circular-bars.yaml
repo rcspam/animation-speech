@@ -1,0 +1,43 @@
+# Configuration animation-speech
+# Générée par le sélecteur visuel
+
+animation_type: circular-bars
+position: center
+width: 200
+height: 200
+colors:
+  background: '#00000000'
+  primary: '#89adf4f2'
+  secondary: '#f4bce5f2'
+  gradient:
+  - '#8cd6c9f2'
+  - '#89adf4f2'
+  - '#f4bce5f2'
+  - '#ed8796f2'
+  - '#f4a87ff2'
+  - '#edd39ef2'
+  - '#a5d893f2'
+background:
+  enabled: true
+  color: '#33333fd8'
+  padding: 10
+  border_width: 0
+  border_color: '#ffffff7f'
+animation:
+  fps: 60
+  intensity: 0.9
+  wave_frequency: 2.5
+  bar_count: 80
+  bar_width: 3
+audio:
+  enabled: true
+  sensitivity: 1.5
+  smoothing: 0.3
+layer:
+  layer: overlay
+  exclusive_zone: 0
+  margin:
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0

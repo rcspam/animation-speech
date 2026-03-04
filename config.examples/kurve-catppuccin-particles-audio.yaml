@@ -1,0 +1,43 @@
+# Kurve - Particules Catppuccin Macchiato + modulation micro
+# Particules avec couleur Pink Catppuccin
+
+animation_type: particles
+position: center
+
+width: 400
+height: 100
+
+colors:
+  background: [0.0, 0.0, 0.0, 0.0]
+  primary: [0.96, 0.74, 0.90, 0.9]     # Pink Macchiato #F5BDE6
+  secondary: [0.55, 0.84, 0.79, 0.7]   # Teal Macchiato #8BD5CA
+
+# Fond arrondi semi-transparent (style capsule)
+background:
+  enabled: true
+  color: [0.2, 0.2, 0.25, 0.85]
+  padding: 10
+
+animation:
+  fps: 60
+  smoothing: 0.3
+  intensity: 1.0
+
+# Capture audio du microphone
+audio:
+  enabled: true
+  sensitivity: 1.5
+  smoothing: 0.3
+
+signals:
+  start: SIGUSR1
+  stop: SIGUSR2
+
+layer:
+  layer: overlay
+  exclusive_zone: 0
+  margin:
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0

@@ -1,0 +1,55 @@
+# Kurve - Barres arc-en-ciel + modulation micro
+# Barres d'égaliseur avec dégradé hue 0-360 (rainbow complet)
+
+animation_type: equalizer
+position: bottom
+
+width: 800
+height: 80
+
+colors:
+  background: [0.0, 0.0, 0.0, 0.0]
+  primary: [1.0, 0.0, 0.0, 0.95]
+  secondary: [0.5, 0.0, 1.0, 0.95]
+  gradient:
+    - [1.0, 0.0, 0.0, 0.95]      # Rouge
+    - [1.0, 0.5, 0.0, 0.95]      # Orange
+    - [1.0, 1.0, 0.0, 0.95]      # Jaune
+    - [0.0, 1.0, 0.0, 0.95]      # Vert
+    - [0.0, 1.0, 1.0, 0.95]      # Cyan
+    - [0.0, 0.0, 1.0, 0.95]      # Bleu
+    - [0.5, 0.0, 1.0, 0.95]      # Violet
+    - [1.0, 0.0, 0.5, 0.95]      # Magenta
+
+# Fond arrondi semi-transparent (style capsule)
+background:
+  enabled: true
+  color: [0.2, 0.2, 0.25, 0.85]
+  padding: 10
+
+animation:
+  fps: 60
+  bar_count: 30
+  bar_width: 5
+  bar_spacing: 6
+  smoothing: 0.35
+  intensity: 1.0
+
+# Capture audio du microphone
+audio:
+  enabled: true
+  sensitivity: 1.5
+  smoothing: 0.3
+
+signals:
+  start: SIGUSR1
+  stop: SIGUSR2
+
+layer:
+  layer: overlay
+  exclusive_zone: 0
+  margin:
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0

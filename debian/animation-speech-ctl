@@ -1,0 +1,172 @@
+#!/bin/bash
+# Control script for animation-speech (package version)
+# Usage: animation-speech-ctl <command>
+
+# i18n
+TEXTDOMAIN=animation-speech
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+for _d in "${SCRIPT_DIR}/../locales" "$HOME/.local/share/animation-speech/locales" \
+          /usr/local/share/locale /usr/share/locale; do
+    [ -d "$_d" ] && TEXTDOMAINDIR="$_d" && break
+done
+export TEXTDOMAIN TEXTDOMAINDIR
+
+if command -v gettext >/dev/null 2>&1; then
+    _() { gettext "$1"; }
+else
+    _() { printf '%s' "$1"; }
+fi
+
+PID_FILE="/tmp/speech-animation.pid"
+
+get_pid() {
+    if [ -f "$PID_FILE" ]; then
+        PID=$(cat "$PID_FILE" 2>/dev/null)
+        if kill -0 "$PID" 2>/dev/null; then
+            echo "$PID"
+            return 0
+        fi
+    fi
+
+    PID=$(pgrep -f "animation-speech" | head -1)
+    if [ -n "$PID" ]; then
+        echo "$PID"
+        return 0
+    fi
+
+    return 1
+}
+
+no_instance() {
+    echo "$(_ "No running animation instance")"
+    echo "$(_ "Start one first:") animation-speech"
+    exit 1
+}
+
+start_animation() {
+    PID=$(get_pid)
+    if [ -n "$PID" ]; then
+        printf "$(_ "Starting animation (PID: %s)...")\n" "$PID"
+        kill -SIGUSR1 "$PID"
+        echo "$(_ "SIGUSR1 signal sent")"
+    else
+        no_instance
+    fi
+}
+
+stop_animation() {
+    PID=$(get_pid)
+    if [ -n "$PID" ]; then
+        echo "$(_ "Stopping animation...")"
+        kill -SIGUSR2 "$PID"
+        printf "$(_ "SIGUSR2 signal sent (PID: %s)")\n" "$PID"
+    else
+        no_instance
+    fi
+}
+
+toggle_animation() {
+    PID=$(get_pid)
+    if [ -n "$PID" ]; then
+        printf "$(_ "Toggling animation (PID: %s)...")\n" "$PID"
+        kill -SIGUSR1 "$PID"
+        echo "$(_ "SIGUSR1 signal sent")"
+    else
+        no_instance
+    fi
+}
+
+quit_app() {
+    PID=$(get_pid)
+    if [ -n "$PID" ]; then
+        printf "$(_ "Shutting down application (PID: %s)...")\n" "$PID"
+        kill -TERM "$PID"
+
+        for i in {1..10}; do
+            if ! kill -0 "$PID" 2>/dev/null; then
+                echo "$(_ "Application stopped cleanly")"
+                return 0
+            fi
+            sleep 0.5
+        done
+
+        if kill -0 "$PID" 2>/dev/null; then
+            echo "$(_ "Force killing...")"
+            kill -9 "$PID"
+        fi
+
+        [ -f "$PID_FILE" ] && rm -f "$PID_FILE"
+        echo "$(_ "Application stopped")"
+    else
+        no_instance
+    fi
+}
+
+status() {
+    PID=$(get_pid)
+    if [ -n "$PID" ]; then
+        echo "$(_ "Animation is running")"
+        printf "  PID: %s\n" "$PID"
+        printf "  $(_ "PID file:") %s\n" "$PID_FILE"
+        echo ""
+        echo "$(_ "Available commands:")"
+        echo "  animation-speech-ctl start   # $(_ "Start animation")"
+        echo "  animation-speech-ctl stop    # $(_ "Stop animation")"
+        echo "  animation-speech-ctl quit    # $(_ "Quit application")"
+    else
+        echo "$(_ "No running animation instance")"
+        echo ""
+        echo "$(_ "Start one first:") animation-speech"
+    fi
+}
+
+usage() {
+    cat << EOF
+$(_ "Usage:") animation-speech-ctl <$(_ "command")>
+
+$(_ "Commands:")
+  start       $(_ "Start animation") (SIGUSR1)
+  stop        $(_ "Stop animation") (SIGUSR2)
+  toggle      $(_ "Toggle animation")
+  quit        $(_ "Quit application")
+  status      $(_ "Show status")
+  help        $(_ "Show this help")
+
+$(_ "Examples:")
+  animation-speech-ctl start    # $(_ "Start animation")
+  animation-speech-ctl stop     # $(_ "Stop animation")
+  animation-speech-ctl quit     # $(_ "Quit application")
+
+$(_ "Shortcuts:")
+  start-anim, on      -> start
+  stop-anim, off      -> stop
+  kill, exit, q       -> quit
+EOF
+}
+
+case "${1:-help}" in
+    start|start-anim|on)
+        start_animation
+        ;;
+    stop|stop-anim|off)
+        stop_animation
+        ;;
+    toggle|switch)
+        toggle_animation
+        ;;
+    quit|kill|exit|q)
+        quit_app
+        ;;
+    status|stat|info)
+        status
+        ;;
+    help|--help|-h|"")
+        usage
+        ;;
+    *)
+        printf "$(_ "Unknown command: %s")\n" "$1"
+        echo ""
+        usage
+        exit 1
+        ;;
+esac

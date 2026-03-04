@@ -1,0 +1,44 @@
+# Animation soundwave miroir noir et blanc avec micro
+# Style forme d'onde audio minimaliste réactif
+# primary: [0.1, 0.1, 0.1, 0.9]       # Noir
+# secondary: [0.4, 0.4, 0.4, 0.6]     # Gris
+
+animation_type: soundwave
+
+position: center
+
+width: 1000
+height: 80
+
+colors:
+  background: [0.9, 0.9, 0.9, 0.5]
+  primary: [0.1, 0.3, 0.9, 0.9]
+  secondary: [0.7, 0.33, 0.9, 0.6]
+
+# Fond arrondi semi-transparent (style capsule)
+background:
+  enabled: true
+  color: [0.2, 0.2, 0.25, 0.85]
+  padding: 10
+
+animation:
+  fps: 60
+  bar_count: 120
+  bar_width: 2
+  bar_spacing: 1
+  intensity: 1.2
+  wave_frequency: 2.5
+
+audio:
+  enabled: true
+  sensitivity: 1.5
+  smoothing: 0.25
+
+layer:
+  layer: overlay
+  exclusive_zone: 0
+  margin:
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0

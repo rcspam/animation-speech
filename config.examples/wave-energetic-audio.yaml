@@ -1,0 +1,43 @@
+# Configuration onde énergique avec micro
+# Animation dynamique modulée par la voix
+
+animation_type: wave
+
+position: center
+
+width: 1400
+height: 120
+
+colors:
+  background: [0.0, 0.0, 0.0, 0.0]
+  primary: [0.0, 0.0, 0.0, 1.0]
+  secondary: [0.35, 0.35, 0.35, 0.8]
+
+# Fond arrondi semi-transparent (style capsule)
+background:
+  enabled: true
+  color: [0.2, 0.2, 0.25, 0.85]
+  padding: 10
+
+animation:
+  fps: 60
+  smoothing: 0.15
+  intensity: 1.8
+  wave_frequency: 4.0
+  wave_count: 10
+  fill_wave: false
+  fill_opacity: 0.3
+
+audio:
+  enabled: true
+  sensitivity: 2.0
+  smoothing: 0.2
+
+layer:
+  layer: overlay
+  exclusive_zone: 0
+  margin:
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0

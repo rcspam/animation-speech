@@ -1,0 +1,43 @@
+# Animation wave modulée par le microphone
+
+animation_type: wave
+
+position: bottom
+
+width: 800
+height: 80
+
+colors:
+  background: [0.0, 0.0, 0.0, 0.0]
+  primary: [0.2, 1.0, 0.5, 0.9]
+  secondary: [1.0, 0.8, 0.2, 0.7]
+
+# Fond arrondi semi-transparent (style capsule)
+background:
+  enabled: true
+  color: [0.2, 0.2, 0.25, 0.85]
+  padding: 10
+
+animation:
+  fps: 60
+  intensity: 1.0
+  wave_frequency: 3.0
+  wave_count: 10
+  fill_wave: false
+  fill_opacity: 0.3
+
+# Capture audio du microphone
+audio:
+  enabled: true
+  sensitivity: 1.5    # Sensibilité (0.5=faible, 1.5=normal, 3.0=élevée)
+  smoothing: 0.3      # Lissage (0.1=réactif, 0.5=fluide)
+  # device_index: 0   # Index du périphérique audio (optionnel)
+
+layer:
+  layer: overlay
+  exclusive_zone: 0
+  margin:
+    top: 0
+    bottom: 20
+    left: 0
+    right: 0
