@@ -1,0 +1,42 @@
+# Configuration égaliseur modulé par le microphone
+# Barres réactives à la voix
+
+animation_type: equalizer
+
+position: bottom
+
+width: 600
+height: 100
+
+colors:
+  background: [0.0, 0.0, 0.0, 0.0]
+  primary: [0.1, 0.1, 0.1, 0.9]
+  secondary: [0.25, 0.25, 0.25, 0.75]
+
+# Fond arrondi semi-transparent (style capsule)
+background:
+  enabled: true
+  color: [0.2, 0.2, 0.25, 0.85]
+  padding: 10
+
+animation:
+  fps: 60
+  bar_count: 30
+  bar_width: 12
+  bar_spacing: 8
+  smoothing: 0.3
+  intensity: 1.0
+
+audio:
+  enabled: true
+  sensitivity: 1.5
+  smoothing: 0.3
+
+layer:
+  layer: overlay
+  exclusive_zone: 0
+  margin:
+    top: 0
+    bottom: 10
+    left: 0
+    right: 0

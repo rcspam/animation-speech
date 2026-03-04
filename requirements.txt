@@ -1,0 +1,8 @@
+PyGObject>=3.42.0
+pycairo>=1.20.0
+PyYAML>=6.0
+
+# Note: gtk-layer-shell doit être installé via le gestionnaire de paquets système
+# Debian/Ubuntu: sudo apt install libgtk-layer-shell0 gir1.2-gtklayershell-0.1
+# Arch: sudo pacman -S gtk-layer-shell
+# Fedora: sudo dnf install gtk-layer-shell

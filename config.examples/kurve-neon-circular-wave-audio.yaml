@@ -1,0 +1,53 @@
+# Kurve - Cercle vibrant néon multi-couches + modulation micro (style circ_0001)
+# Plusieurs couches de courbes circulaires avec forte amplitude
+
+animation_type: circular-wave
+position: center
+
+width: 300
+height: 300
+
+colors:
+  background: [0.0, 0.0, 0.0, 0.0]
+  primary: [1.0, 0.2, 0.5, 0.9]
+  secondary: [0.3, 0.8, 1.0, 0.9]
+  gradient:
+    - [1.0, 0.2, 0.5, 0.9]       # Rose vif
+    - [1.0, 0.5, 0.2, 0.9]       # Orange
+    - [0.3, 0.8, 1.0, 0.9]       # Cyan
+    - [0.5, 0.3, 1.0, 0.9]       # Violet
+    - [1.0, 0.3, 0.8, 0.9]       # Magenta
+    - [0.2, 0.9, 0.8, 0.9]       # Turquoise
+    - [1.0, 0.2, 0.5, 0.9]       # Rose vif (boucle)
+
+# Fond arrondi semi-transparent (style capsule)
+background:
+  enabled: true
+  color: [0.2, 0.2, 0.25, 0.85]
+  padding: 10
+
+animation:
+  fps: 60
+  intensity: 1.5
+  wave_frequency: 5.0
+  wave_count: 6
+  fill_opacity: 0.08
+
+# Capture audio du microphone
+audio:
+  enabled: true
+  sensitivity: 2.0
+  smoothing: 0.25
+
+signals:
+  start: SIGUSR1
+  stop: SIGUSR2
+
+layer:
+  layer: overlay
+  exclusive_zone: 0
+  margin:
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0

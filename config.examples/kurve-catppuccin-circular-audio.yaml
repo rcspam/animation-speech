@@ -1,0 +1,55 @@
+# Kurve - Circulaire Catppuccin Macchiato + modulation micro
+# Cercles concentriques avec dégradé 7 couleurs Catppuccin
+
+animation_type: circular
+position: center
+
+width: 200
+height: 200
+
+colors:
+  background: [0.0, 0.0, 0.0, 0.0]
+  primary: [0.93, 0.53, 0.59, 0.9]
+  secondary: [0.96, 0.66, 0.50, 0.9]
+  gradient:
+    - [0.93, 0.53, 0.59, 0.9]    # Red #ED8796
+    - [0.93, 0.83, 0.62, 0.9]    # Yellow #EED49F
+    - [0.65, 0.85, 0.58, 0.9]    # Green #A6DA95
+    - [0.55, 0.84, 0.79, 0.9]    # Teal #8BD5CA
+    - [0.54, 0.68, 0.96, 0.9]    # Blue #8AADF4
+    - [0.96, 0.74, 0.90, 0.9]    # Pink #F5BDE6
+    - [0.96, 0.66, 0.50, 0.9]    # Peach #f5a97f
+
+# Fond arrondi semi-transparent (style capsule)
+background:
+  enabled: true
+  color: [0.2, 0.2, 0.25, 0.85]
+  padding: 10
+
+animation:
+  fps: 60
+  circle_count: 10
+  circle_direction: outward   # outward, inward, ping-pong
+  circle_spacing: 12
+  circle_speed: 1.5
+  smoothing: 0.3
+  intensity: 1.0
+
+# Capture audio du microphone
+audio:
+  enabled: true
+  sensitivity: 1.5
+  smoothing: 0.3
+
+signals:
+  start: SIGUSR1
+  stop: SIGUSR2
+
+layer:
+  layer: overlay
+  exclusive_zone: 0
+  margin:
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0

@@ -1,0 +1,43 @@
+# Configuration monochrome noir et blanc avec micro
+# Onde sonore élégante modulée par la voix
+
+animation_type: wave
+
+position: center
+
+width: 1200
+height: 150
+
+colors:
+  background: [0.95, 0.95, 0.95, 0.0]
+  primary: [0.1, 0.1, 0.1, 0.95]
+  secondary: [0.3, 0.3, 0.3, 0.7]
+
+# Fond arrondi semi-transparent (style capsule)
+background:
+  enabled: true
+  color: [0.2, 0.2, 0.25, 0.85]
+  padding: 10
+
+animation:
+  fps: 60
+  smoothing: 0.25
+  intensity: 1.2
+  wave_frequency: 3.0
+  wave_count: 8
+  fill_wave: false
+  fill_opacity: 0.3
+
+audio:
+  enabled: true
+  sensitivity: 1.5
+  smoothing: 0.3
+
+layer:
+  layer: overlay
+  exclusive_zone: 0
+  margin:
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0

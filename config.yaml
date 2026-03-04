@@ -1,0 +1,51 @@
+# Configuration de l'animation de parole pour Wayland
+
+# Type d'animation: wave, equalizer, circular, particles, soundwave, soundwave-curve, circular-wave, circular-bars
+animation_type: wave
+
+# Position: bottom, top, left, right, center, top-left, top-right, bottom-left, bottom-right
+position: bottom
+
+# Dimensions
+width: 800
+height: 60
+
+# Couleurs (format RGBA)
+colors:
+  background: [0.0, 0.0, 0.0, 0.0]   # Transparent
+  primary: [0.3, 0.8, 1.0, 0.9]      # Bleu clair
+  secondary: [0.6, 0.4, 1.0, 0.7]    # Violet clair
+
+# Fond arrondi semi-transparent (style capsule)
+background:
+  enabled: true
+  color: [0.2, 0.2, 0.25, 0.85]
+  padding: 10
+  border_width: 0                        # Épaisseur de la bordure (0 = pas de bordure)
+  border_color: [1.0, 1.0, 1.0, 0.5]    # Couleur de la bordure (RGBA)
+
+# Paramètres d'animation
+animation:
+  fps: 60
+  bar_count: 20        # Pour equalizer
+  bar_width: 15
+  bar_spacing: 5
+  smoothing: 0.3       # Interpolation (0-1)
+  intensity: 1.0       # Multiplicateur d'amplitude
+  wave_frequency: 3.0  # Fréquence des ondes (1=sobre, 3-5=plus de courbes)
+  wave_count: 8        # Nombre de courbes parallèles (pour wave/soundwave-curve)
+  fill_wave: false     # Remplissage sous la courbe (pour wave/soundwave-curve)
+  fill_opacity: 0.3    # Opacité du remplissage
+  circle_count: 12     # Nombre de cercles concentriques (pour circular)
+  circle_speed: 2.0    # Vitesse de propagation (0.1=lent, 2=normal, 8=rapide)
+  circle_direction: outward  # Direction des cercles : outward, inward, ping-pong
+
+# Layer shell (pour Wayland)
+layer:
+  layer: overlay  # background, bottom, top, overlay
+  exclusive_zone: 0  # Pixels réservés (0 = aucun)
+  margin:
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
