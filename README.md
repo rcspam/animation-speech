@@ -5,7 +5,7 @@ Configurable transparent overlay for Wayland that displays visual animations dur
 <p align="center">
   <img src="overlay-screen.png" alt="Overlay animation on desktop" width="520">
   <br>
-  <em>Transparent overlay with rounded background — displayed above all windows</em>
+  <em>Overlay with rounded background — displayed over KDE desktop</em>
 </p>
 
 <p align="center">
