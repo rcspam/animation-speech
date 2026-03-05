@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: animation-speech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-04 21:54+0100\n"
+"POT-Creation-Date: 2026-03-05 09:15+0100\n"
 "PO-Revision-Date: 2026-03-04 20:00+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,114 +17,114 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: animation_speech/animation.py:86
+#: animation_speech/animation.py:87
 #, python-brace-format
 msgid "PID file created: {path}"
 msgstr "PID file created: {path}"
 
-#: animation_speech/animation.py:88
+#: animation_speech/animation.py:89
 #, python-brace-format
 msgid "Cannot create PID file: {error}"
 msgstr "Cannot create PID file: {error}"
 
-#: animation_speech/animation.py:102
+#: animation_speech/animation.py:103
 msgid "pyaudio not installed - audio capture disabled"
 msgstr "pyaudio not installed - audio capture disabled"
 
-#: animation_speech/animation.py:103
+#: animation_speech/animation.py:104
 msgid ""
 "  Install with: sudo apt install -y python3-pyaudio || pip install pyaudio"
 msgstr ""
 "  Install with: sudo apt install -y python3-pyaudio || pip install pyaudio"
 
-#: animation_speech/animation.py:110
+#: animation_speech/animation.py:111
 msgid "Audio capture enabled"
 msgstr "Audio capture enabled"
 
-#: animation_speech/animation.py:145
+#: animation_speech/animation.py:146
 #, python-brace-format
 msgid "Microphone opened (sensitivity: {val})"
 msgstr "Microphone opened (sensitivity: {val})"
 
-#: animation_speech/animation.py:162
+#: animation_speech/animation.py:163
 #, python-brace-format
 msgid "Audio capture error: {error}"
 msgstr "Audio capture error: {error}"
 
-#: animation_speech/animation.py:174
+#: animation_speech/animation.py:175
 #, python-brace-format
 msgid "Unknown animation type: '{type}' (valid: {valid}). Using 'wave'."
 msgstr "Unknown animation type: '{type}' (valid: {valid}). Using 'wave'."
 
-#: animation_speech/animation.py:219
+#: animation_speech/animation.py:220
 msgid "=== Overlay configuration ==="
 msgstr "=== Overlay configuration ==="
 
-#: animation_speech/animation.py:220
+#: animation_speech/animation.py:221
 #, python-brace-format
 msgid "Type: {type}"
 msgstr "Type: {type}"
 
-#: animation_speech/animation.py:221
+#: animation_speech/animation.py:222
 #, python-brace-format
 msgid "Position: {pos}"
 msgstr "Position: {pos}"
 
-#: animation_speech/animation.py:222
+#: animation_speech/animation.py:223
 #, python-brace-format
 msgid "Dimensions: {w}x{h}px"
 msgstr "Dimensions: {w}x{h}px"
 
-#: animation_speech/animation.py:224
+#: animation_speech/animation.py:225
 #, python-brace-format
 msgid "Margins: top={top}px, bottom={bottom}px, left={left}px, right={right}px"
 msgstr ""
 "Margins: top={top}px, bottom={bottom}px, left={left}px, right={right}px"
 
-#: animation_speech/animation.py:228
+#: animation_speech/animation.py:229
 msgid "Creating transparent overlay..."
 msgstr "Creating transparent overlay..."
 
-#: animation_speech/animation.py:234
+#: animation_speech/animation.py:235
 msgid "Layer shell enabled"
 msgstr "Layer shell enabled"
 
-#: animation_speech/animation.py:249
+#: animation_speech/animation.py:250
 msgid "Exclusive keyboard grab (Escape to cancel)"
 msgstr "Exclusive keyboard grab (Escape to cancel)"
 
-#: animation_speech/animation.py:273
+#: animation_speech/animation.py:274
 msgid "Transparency enabled"
 msgstr "Transparency enabled"
 
-#: animation_speech/animation.py:289
+#: animation_speech/animation.py:290
 #, python-brace-format
 msgid "Overlay displayed ({w}x{h})"
 msgstr "Overlay displayed ({w}x{h})"
 
-#: animation_speech/animation.py:346
+#: animation_speech/animation.py:347
 #, python-brace-format
 msgid ""
 "\n"
 "PID: {pid}"
 msgstr ""
 
-#: animation_speech/animation.py:348
+#: animation_speech/animation.py:349
 #, python-brace-format
 msgid "PID file: {path}"
 msgstr "PID file: {path}"
 
-#: animation_speech/animation.py:349
+#: animation_speech/animation.py:350
 #, python-brace-format
 msgid "Send 'kill -SIGUSR1 {pid}' to start"
 msgstr "Send 'kill -SIGUSR1 {pid}' to start"
 
-#: animation_speech/animation.py:350
+#: animation_speech/animation.py:351
 #, python-brace-format
 msgid "Send 'kill -SIGUSR2 {pid}' to stop\n"
 msgstr "Send 'kill -SIGUSR2 {pid}' to stop\n"
 
-#: animation_speech/animation.py:355
+#: animation_speech/animation.py:356
 #, python-brace-format
 msgid ""
 "\n"
@@ -133,41 +133,41 @@ msgstr ""
 "\n"
 "{signal} received, cleaning up..."
 
-#: animation_speech/animation.py:360
+#: animation_speech/animation.py:361
 msgid "Audio capture stopped"
 msgstr "Audio capture stopped"
 
-#: animation_speech/animation.py:368
+#: animation_speech/animation.py:369
 msgid "Destroying window..."
 msgstr "Destroying window..."
 
-#: animation_speech/animation.py:373
+#: animation_speech/animation.py:374
 #, python-brace-format
 msgid "Error destroying window: {error}"
 msgstr "Error destroying window: {error}"
 
-#: animation_speech/animation.py:379
+#: animation_speech/animation.py:380
 #, python-brace-format
 msgid "PID file removed: {path}"
 msgstr "PID file removed: {path}"
 
-#: animation_speech/animation.py:381
+#: animation_speech/animation.py:382
 msgid "Cleanup complete, goodbye!"
 msgstr "Cleanup complete, goodbye!"
 
-#: animation_speech/animation.py:389
+#: animation_speech/animation.py:390
 msgid "Escape pressed, executing cancel command..."
 msgstr "Escape pressed, executing cancel command..."
 
-#: animation_speech/animation.py:396
+#: animation_speech/animation.py:397
 msgid "Animation started"
 msgstr "Animation started"
 
-#: animation_speech/animation.py:401
+#: animation_speech/animation.py:402
 msgid "Animation stopped"
 msgstr "Animation stopped"
 
-#: animation_speech/animation.py:483
+#: animation_speech/animation.py:484
 msgid ""
 "\n"
 "Keyboard interrupt (Ctrl+C), stopping..."
@@ -175,7 +175,7 @@ msgstr ""
 "\n"
 "Keyboard interrupt (Ctrl+C), stopping..."
 
-#: animation_speech/animation.py:485
+#: animation_speech/animation.py:486
 #, python-brace-format
 msgid ""
 "\n"
@@ -184,7 +184,7 @@ msgstr ""
 "\n"
 "Unexpected error: {error}"
 
-#: animation_speech/animation.py:488
+#: animation_speech/animation.py:489
 msgid "Final cleanup..."
 msgstr "Final cleanup..."
 
@@ -516,60 +516,60 @@ msgstr "Add a color"
 msgid "Remove last color"
 msgstr "Remove last color"
 
-#: animation_speech/main.py:21
+#: animation_speech/main.py:26
 msgid "User - configs"
 msgstr "User - configs"
 
-#: animation_speech/main.py:22
+#: animation_speech/main.py:27
 msgid "User - main"
 msgstr "User - main"
 
-#: animation_speech/main.py:23
+#: animation_speech/main.py:28
 msgid "User - examples"
 msgstr "User - examples"
 
-#: animation_speech/main.py:24
+#: animation_speech/main.py:29
 msgid "System - main"
 msgstr "System - main"
 
-#: animation_speech/main.py:25
+#: animation_speech/main.py:30
 msgid "System - examples"
 msgstr "System - examples"
 
-#: animation_speech/main.py:26
+#: animation_speech/main.py:31
 msgid "Script - main"
 msgstr "Script - main"
 
-#: animation_speech/main.py:27
+#: animation_speech/main.py:32
 msgid "Script - examples"
 msgstr "Script - examples"
 
-#: animation_speech/main.py:50
+#: animation_speech/main.py:55
 msgid "No configuration found"
 msgstr "No configuration found"
 
-#: animation_speech/main.py:54
+#: animation_speech/main.py:59
 msgid ""
 "\\u2551          Available configurations                        \\u2551"
 msgstr ""
 
-#: animation_speech/main.py:81 control.sh:124 debian/animation-speech-ctl:125
+#: animation_speech/main.py:86 control.sh:124 debian/animation-speech-ctl:125
 msgid "Usage:"
 msgstr "Usage:"
 
-#: animation_speech/main.py:82
+#: animation_speech/main.py:87
 msgid "   animation-speech NAME"
 msgstr ""
 
-#: animation_speech/main.py:84
+#: animation_speech/main.py:89
 msgid "   Examples:"
 msgstr "   Examples:"
 
-#: animation_speech/main.py:146
+#: animation_speech/main.py:151
 msgid "Speech animation for Wayland controlled by UNIX signals"
 msgstr "Speech animation for Wayland controlled by UNIX signals"
 
-#: animation_speech/main.py:148
+#: animation_speech/main.py:153
 #, python-format
 msgid ""
 "\n"
@@ -597,81 +597,81 @@ msgid ""
 "        "
 msgstr ""
 
-#: animation_speech/main.py:171
+#: animation_speech/main.py:176
 msgid "YAML configuration file (default: config.yaml)"
 msgstr "YAML configuration file (default: config.yaml)"
 
-#: animation_speech/main.py:175
+#: animation_speech/main.py:180
 msgid "List all available configurations"
 msgstr "List all available configurations"
 
-#: animation_speech/main.py:177
+#: animation_speech/main.py:182
 msgid "Open visual selector (optional filter, e.g.: --choose kurve)"
 msgstr "Open visual selector (optional filter, e.g.: --choose kurve)"
 
-#: animation_speech/main.py:181
+#: animation_speech/main.py:186
 msgid "Animation width in pixels"
 msgstr "Animation width in pixels"
 
-#: animation_speech/main.py:183
+#: animation_speech/main.py:188
 msgid "Animation height in pixels"
 msgstr "Animation height in pixels"
 
-#: animation_speech/main.py:188
+#: animation_speech/main.py:193
 msgid "Overlay position on screen"
 msgstr "Overlay position on screen"
 
-#: animation_speech/main.py:190
+#: animation_speech/main.py:195
 msgid "Margin from top of screen (in pixels)"
 msgstr "Margin from top of screen (in pixels)"
 
-#: animation_speech/main.py:192
+#: animation_speech/main.py:197
 msgid "Margin from bottom of screen (in pixels)"
 msgstr "Margin from bottom of screen (in pixels)"
 
-#: animation_speech/main.py:194
+#: animation_speech/main.py:199
 msgid "Margin from left of screen (in pixels)"
 msgstr "Margin from left of screen (in pixels)"
 
-#: animation_speech/main.py:196
+#: animation_speech/main.py:201
 msgid "Margin from right of screen (in pixels)"
 msgstr "Margin from right of screen (in pixels)"
 
-#: animation_speech/main.py:200
+#: animation_speech/main.py:205
 msgid "Animation speed (0.5=slow, 2=normal, 5=fast)"
 msgstr "Animation speed (0.5=slow, 2=normal, 5=fast)"
 
-#: animation_speech/main.py:202
+#: animation_speech/main.py:207
 msgid "Number of curves/circles (default: 8 for wave, 12 for circular)"
 msgstr "Number of curves/circles (default: 8 for wave, 12 for circular)"
 
-#: animation_speech/main.py:206
+#: animation_speech/main.py:211
 msgid "Enable rounded background (cartouche)"
 msgstr "Enable rounded background (cartouche)"
 
-#: animation_speech/main.py:208
+#: animation_speech/main.py:213
 msgid "Disable rounded background"
 msgstr "Disable rounded background"
 
-#: animation_speech/main.py:210
+#: animation_speech/main.py:215
 msgid "Rounded background opacity (0.0=invisible, 1.0=opaque, default: 0.85)"
 msgstr "Rounded background opacity (0.0=invisible, 1.0=opaque, default: 0.85)"
 
-#: animation_speech/main.py:214
+#: animation_speech/main.py:219
 msgid "Enable microphone modulation"
 msgstr "Enable microphone modulation"
 
-#: animation_speech/main.py:216
+#: animation_speech/main.py:221
 msgid "Microphone sensitivity (default: 1.5)"
 msgstr "Microphone sensitivity (default: 1.5)"
 
-#: animation_speech/main.py:218
+#: animation_speech/main.py:223
 msgid ""
 "Shell command to execute on Escape key (enables exclusive keyboard grab)"
 msgstr ""
 "Shell command to execute on Escape key (enables exclusive keyboard grab)"
 
-#: animation_speech/main.py:271
+#: animation_speech/main.py:276
 #, python-brace-format
 msgid ""
 "\n"
@@ -680,12 +680,12 @@ msgstr ""
 "\n"
 "Error: File not found - {error}"
 
-#: animation_speech/main.py:272
+#: animation_speech/main.py:277
 #, python-brace-format
 msgid "File searched: '{config}'"
 msgstr "File searched: '{config}'"
 
-#: animation_speech/main.py:273
+#: animation_speech/main.py:278
 msgid ""
 "\n"
 "Locations checked:"
@@ -693,11 +693,11 @@ msgstr ""
 "\n"
 "Locations checked:"
 
-#: animation_speech/main.py:274
+#: animation_speech/main.py:279
 msgid "  - Current directory"
 msgstr "  - Current directory"
 
-#: animation_speech/main.py:280
+#: animation_speech/main.py:285
 #, python-brace-format
 msgid ""
 "\n"
@@ -706,12 +706,12 @@ msgstr ""
 "\n"
 "YAML configuration error: {error}"
 
-#: animation_speech/main.py:281
+#: animation_speech/main.py:286
 #, python-brace-format
 msgid "Check the syntax of '{config}'"
 msgstr "Check the syntax of '{config}'"
 
-#: animation_speech/main.py:284
+#: animation_speech/main.py:289
 msgid ""
 "\n"
 "Interrupted by user"
@@ -719,7 +719,7 @@ msgstr ""
 "\n"
 "Interrupted by user"
 
-#: animation_speech/main.py:287
+#: animation_speech/main.py:292
 #, python-brace-format
 msgid ""
 "\n"
