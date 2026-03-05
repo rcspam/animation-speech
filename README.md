@@ -114,6 +114,8 @@ Or use the control script:
 ```bash
 animation-speech-ctl start     # SIGUSR1
 animation-speech-ctl stop      # SIGUSR2
+animation-speech-ctl toggle    # SIGUSR1 (toggle)
+animation-speech-ctl launch    # launch if needed, then start
 animation-speech-ctl quit      # SIGTERM
 animation-speech-ctl status
 ```
