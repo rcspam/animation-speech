@@ -83,7 +83,7 @@ cat > "${SCRIPT_DIR}/${PACKAGE_DIR}/DEBIAN/postrm" << 'EOF'
 set -e
 
 # Supprimer le fichier PID s'il existe
-rm -f /tmp/speech-animation.pid 2>/dev/null || true
+rm -f "${XDG_RUNTIME_DIR:-/tmp}/speech-animation.pid" 2>/dev/null || true
 
 exit 0
 EOF
