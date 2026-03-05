@@ -28,7 +28,7 @@ get_pid() {
         fi
     fi
 
-    PID=$(pgrep -f "animation-speech" | head -1)
+    PID=$(pgrep -f 'animation-speech(\.py)?$')
     if [ -n "$PID" ]; then
         echo "$PID"
         return 0
@@ -74,6 +74,32 @@ toggle_animation() {
     else
         no_instance
     fi
+}
+
+launch_animation() {
+    local PID
+    PID=$(get_pid)
+    if [ -n "$PID" ]; then
+        # Déjà lancé, juste start
+        start_animation
+        return
+    fi
+
+    # Lancer animation-speech avec les args restants
+    shift  # retirer "launch" des args
+    animation-speech "$@" &
+
+    # Attendre le PID file (max 3s)
+    for i in {1..30}; do
+        if [ -f "$PID_FILE" ] && kill -0 "$(cat "$PID_FILE")" 2>/dev/null; then
+            sleep 0.2
+            start_animation
+            return
+        fi
+        sleep 0.1
+    done
+    echo "$(_ "Échec du lancement d'animation-speech")"
+    exit 1
 }
 
 quit_app() {
@@ -128,6 +154,7 @@ $(_ "Commands:")
   start       $(_ "Start animation") (SIGUSR1)
   stop        $(_ "Stop animation") (SIGUSR2)
   toggle      $(_ "Toggle animation")
+  launch      $(_ "Launch animation-speech if needed, then start") [args...]
   quit        $(_ "Quit application")
   status      $(_ "Show status")
   help        $(_ "Show this help")
@@ -153,6 +180,9 @@ case "${1:-help}" in
         ;;
     toggle|switch)
         toggle_animation
+        ;;
+    launch)
+        launch_animation "$@"
         ;;
     quit|kill|exit|q)
         quit_app
