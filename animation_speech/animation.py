@@ -30,7 +30,8 @@ except ImportError:
 
 class SpeechAnimation(AnimationDrawMixin):
     def __init__(self, config_path='config.yaml', cli_overrides=None):
-        self.pid_file = '/tmp/speech-animation.pid'
+        runtime_dir = os.environ.get('XDG_RUNTIME_DIR', '/tmp')
+        self.pid_file = os.path.join(runtime_dir, 'speech-animation.pid')
         self.window = None
 
         # Create PID file first

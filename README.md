@@ -103,9 +103,10 @@ sudo dnf install python3-gobject gtk3 python3-pyyaml gtk-layer-shell
 animation-speech &
 
 # Start / stop / quit
-kill -SIGUSR1 $(cat /tmp/speech-animation.pid)   # start
-kill -SIGUSR2 $(cat /tmp/speech-animation.pid)   # stop
-kill $(cat /tmp/speech-animation.pid)             # quit
+PID_FILE="${XDG_RUNTIME_DIR:-/tmp}/speech-animation.pid"
+kill -SIGUSR1 $(cat "$PID_FILE")   # start
+kill -SIGUSR2 $(cat "$PID_FILE")   # stop
+kill $(cat "$PID_FILE")            # quit
 ```
 
 Or use the control script:
@@ -213,7 +214,7 @@ Display an animation while a TTS engine speaks or while an STT engine listens.
 ```bash
 #!/bin/bash
 TEXT="$1"
-PID_FILE="/tmp/speech-animation.pid"
+PID_FILE="${XDG_RUNTIME_DIR:-/tmp}/speech-animation.pid"
 
 # Start the overlay if not already running
 if [ ! -f "$PID_FILE" ] || ! kill -0 "$(cat "$PID_FILE")" 2>/dev/null; then
@@ -237,7 +238,7 @@ kill -SIGUSR2 "$ANIM_PID"
 
 ```bash
 #!/bin/bash
-PID_FILE="/tmp/speech-animation.pid"
+PID_FILE="${XDG_RUNTIME_DIR:-/tmp}/speech-animation.pid"
 animation-speech &
 sleep 0.3
 ANIM_PID=$(cat "$PID_FILE")
@@ -263,7 +264,7 @@ kill "$ANIM_PID"
 import os, signal, subprocess, time
 from gtts import gTTS
 
-PID_FILE = "/tmp/speech-animation.pid"
+PID_FILE = os.path.join(os.environ.get('XDG_RUNTIME_DIR', '/tmp'), 'speech-animation.pid')
 
 def get_animation_pid():
     try:
@@ -306,7 +307,7 @@ if __name__ == "__main__":
 # --on-escape: pressing Escape cancels the recording
 animation-speech --on-escape "kill $$ && rm -f /tmp/recording.wav" &
 sleep 0.3
-ANIM_PID=$(cat /tmp/speech-animation.pid)
+ANIM_PID=$(cat "${XDG_RUNTIME_DIR:-/tmp}/speech-animation.pid")
 
 kill -SIGUSR1 "$ANIM_PID"
 arecord -d 5 -f cd /tmp/recording.wav
@@ -324,7 +325,7 @@ whisper /tmp/recording.wav --language en --model small
 #!/bin/bash
 animation-speech -a &   # -a: mic modulation
 sleep 0.3
-ANIM_PID=$(cat /tmp/speech-animation.pid)
+ANIM_PID=$(cat "${XDG_RUNTIME_DIR:-/tmp}/speech-animation.pid")
 
 while true; do
     echo "=== Listening... ==="
