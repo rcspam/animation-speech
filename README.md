@@ -19,17 +19,20 @@ Configurable transparent overlay for Wayland that displays visual animations dur
 ## How it works
 
 ```
-┌──────────────┐     SIGUSR1      ┌──────────────────┐
-│  Your app    │ ──────────────── │  animation-speech │
-│  (TTS, STT)  │     SIGUSR2      │  (Wayland overlay)│
-└──────────────┘ ──────────────── └──────────────────┘
-      Speaking → start                Animation visible
-      Silence  → stop                 Animation hidden
+┌──────────────┐  animation-speech-ctl  ┌──────────────────┐
+│  Your app    │ ────────────────────── │  animation-speech │
+│  (TTS, STT)  │   start / stop / quit  │  (Wayland overlay)│
+└──────────────┘ ────────────────────── └──────────────────┘
+      Speaking → start                      Animation visible
+      Silence  → stop                       Animation hidden
 ```
 
-The animation runs as a standalone background process. Your application sends:
-- **`SIGUSR1`** — start the animation (voice is speaking)
-- **`SIGUSR2`** — stop the animation (silence)
+The animation runs as a standalone background process. Control it with `animation-speech-ctl`:
+- **`animation-speech-ctl start`** — start the animation (sends SIGUSR1)
+- **`animation-speech-ctl stop`** — stop the animation (sends SIGUSR2)
+- **`animation-speech-ctl launch`** — launch the process if needed, then start
+
+Or send signals directly: `kill -SIGUSR1 $(cat "$PID_FILE")`
 
 ## Features
 
