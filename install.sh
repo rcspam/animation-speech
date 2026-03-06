@@ -23,11 +23,12 @@ show_usage() {
     echo "  --uninstall  Désinstaller"
     echo ""
     echo "Fichiers installés:"
-    echo "  - animation-speech      : Script d'animation"
+    echo "  - animation-speech      : Application d'animation"
+    echo "  - animation-speech-ctl  : Script de contrôle"
     echo "  - config.yaml           : Configuration par défaut"
     echo "  - config.examples/      : Exemples de configurations"
     echo ""
-    echo "Note: audio2ts2pdf.sh n'est PAS installé, il reste dans son emplacement actuel"
+    echo "Contrôle: animation-speech-ctl start|stop|toggle|launch|quit|status"
 }
 
 install_user() {
