@@ -60,14 +60,11 @@ install_user() {
     chmod +x "$BIN_DIR/animation-speech"
 
     # Copier le script de contrôle
-    for _ctl in "$SCRIPT_DIR/animation-speech-ctl" "$SCRIPT_DIR/debian/animation-speech-ctl"; do
-        if [[ -f "$_ctl" ]]; then
-            echo "  → Installation de animation-speech-ctl dans $BIN_DIR"
-            cp "$_ctl" "$BIN_DIR/animation-speech-ctl"
-            chmod +x "$BIN_DIR/animation-speech-ctl"
-            break
-        fi
-    done
+    if [[ -f "$SCRIPT_DIR/debian/animation-speech-ctl" ]]; then
+        echo "  → Installation de animation-speech-ctl dans $BIN_DIR"
+        cp "$SCRIPT_DIR/debian/animation-speech-ctl" "$BIN_DIR/animation-speech-ctl"
+        chmod +x "$BIN_DIR/animation-speech-ctl"
+    fi
 
     # Copier les configs
     echo "  → Installation de config.yaml dans $SHARE_DIR"
@@ -145,14 +142,11 @@ install_system() {
     chmod +x "$BIN_DIR/animation-speech"
 
     # Copier le script de contrôle
-    for _ctl in "$SCRIPT_DIR/animation-speech-ctl" "$SCRIPT_DIR/debian/animation-speech-ctl"; do
-        if [[ -f "$_ctl" ]]; then
-            echo "  → Installation de animation-speech-ctl dans $BIN_DIR"
-            cp "$_ctl" "$BIN_DIR/animation-speech-ctl"
-            chmod +x "$BIN_DIR/animation-speech-ctl"
-            break
-        fi
-    done
+    if [[ -f "$SCRIPT_DIR/debian/animation-speech-ctl" ]]; then
+        echo "  → Installation de animation-speech-ctl dans $BIN_DIR"
+        cp "$SCRIPT_DIR/debian/animation-speech-ctl" "$BIN_DIR/animation-speech-ctl"
+        chmod +x "$BIN_DIR/animation-speech-ctl"
+    fi
 
     # Copier les configs
     echo "  → Installation de config.yaml dans $SHARE_DIR"
