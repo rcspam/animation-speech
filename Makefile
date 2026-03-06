@@ -3,7 +3,7 @@ VERSION = 1.2.0
 LANGS = fr en
 POTFILE = locales/$(DOMAIN).pot
 SRCFILES = $(wildcard animation_speech/*.py)
-SHFILES  = control.sh debian/animation-speech-ctl
+SHFILES  = debian/animation-speech-ctl
 TARNAME = $(DOMAIN)-$(VERSION)
 
 .PHONY: pot update-po mo stats clean build dist
