@@ -32,7 +32,7 @@ The animation runs as a standalone background process. Control it with `animatio
 - **`animation-speech-ctl stop`** — stop the animation (sends SIGUSR2)
 - **`animation-speech-ctl launch`** — launch the process if needed, then start
 
-Or send signals directly: `kill -SIGUSR1 $(cat "$PID_FILE")`
+Or send signals directly: `kill -SIGUSR1 $(cat "$PID_FILE")` / `kill -SIGUSR2 $(cat "$PID_FILE")`
 
 ## Features
 
