@@ -284,6 +284,8 @@ class SpeechAnimation(AnimationDrawMixin):
 
         # Animation timer
         fps = self.config['animation']['fps']
+        self._frame_step = 30.0 / fps  # normalize speed to match 30fps preview
+        self._frame_acc = 0.0
         GLib.timeout_add(1000 // fps, self.update_animation)
 
         self.window.show_all()
@@ -405,7 +407,10 @@ class SpeechAnimation(AnimationDrawMixin):
     def update_animation(self):
         """Update animation state"""
         if self.is_animating:
-            self.frame += 1
+            self._frame_acc += self._frame_step
+            while self._frame_acc >= 1.0:
+                self.frame += 1
+                self._frame_acc -= 1.0
 
             if self.config['animation_type'] == 'equalizer':
                 self.update_equalizer()
