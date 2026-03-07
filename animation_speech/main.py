@@ -26,8 +26,10 @@ def list_available_configs():
         (_("User - configs"), os.path.expanduser("~/.config/animation-speech")),
         (_("User - main"), os.path.expanduser("~/.local/share/animation-speech")),
         (_("User - examples"), os.path.expanduser("~/.local/share/animation-speech/config.examples")),
-        (_("System - main"), "/usr/local/share/animation-speech"),
-        (_("System - examples"), "/usr/local/share/animation-speech/config.examples"),
+        (_("System - main"), "/usr/share/animation-speech"),
+        (_("System - examples"), "/usr/share/animation-speech/config.examples"),
+        (_("System (local) - main"), "/usr/local/share/animation-speech"),
+        (_("System (local) - examples"), "/usr/local/share/animation-speech/config.examples"),
         (_("Script - main"), os.path.join(script_dir, '..')),
         (_("Script - examples"), os.path.join(script_dir, '..', "config.examples")),
     ]
@@ -122,6 +124,7 @@ def find_config_file(config_path):
     search_dirs = [
         os.path.expanduser("~/.config/animation-speech"),
         os.path.expanduser("~/.local/share/animation-speech"),
+        "/usr/share/animation-speech",
         "/usr/local/share/animation-speech",
         os.path.join(script_dir, '..'),
     ]
