@@ -36,7 +36,7 @@ Version: 1.2.0
 Section: graphics
 Priority: optional
 Architecture: all
-Depends: python3, python3-gi, python3-gi-cairo, gir1.2-gtk-3.0, python3-yaml, gtk-layer-shell, gir1.2-gtklayershell-0.1
+Depends: python3, python3-gi, python3-gi-cairo, gir1.2-gtk-3.0, python3-yaml, libgtk-layer-shell0, gir1.2-gtklayershell-0.1
 Recommends: python3-pyaudio
 Maintainer: Rapha <rapha@local>
 Description: Animation de parole pour Wayland
