@@ -102,24 +102,16 @@ def find_config_file(config_path):
     if os.path.isabs(config_path) and os.path.exists(config_path):
         return config_path
 
-    # If the file exists in the current directory
-    if os.path.exists(config_path):
-        return config_path
-
     # Add .yaml if no extension
     if not config_path.endswith('.yaml') and not config_path.endswith('.yml'):
         config_with_ext = config_path + '.yaml'
     else:
         config_with_ext = config_path
 
-    # If the file with extension exists in the current directory
-    if os.path.exists(config_with_ext):
-        return config_with_ext
-
     # Extract just the filename if it's a path
     config_basename = os.path.basename(config_with_ext)
 
-    # Standard directories to scan
+    # Standard directories to scan (user config first, current dir last)
     script_dir = os.path.dirname(os.path.abspath(__file__))
     search_dirs = [
         os.path.expanduser("~/.config/animation-speech"),
@@ -127,6 +119,7 @@ def find_config_file(config_path):
         "/usr/share/animation-speech",
         "/usr/local/share/animation-speech",
         os.path.join(script_dir, '..'),
+        os.getcwd(),
     ]
 
     # Search in each directory and its subdirectories
