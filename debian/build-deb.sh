@@ -110,8 +110,8 @@ cp "${SCRIPT_DIR}/animation-speech-ctl" \
    "${SCRIPT_DIR}/${PACKAGE_DIR}/usr/bin/animation-speech-ctl"
 chmod 755 "${SCRIPT_DIR}/${PACKAGE_DIR}/usr/bin/animation-speech-ctl"
 
-# Configuration par défaut
-cp "${PROJECT_DIR}/config.yaml" \
+# Configuration par défaut (utilise config.examples/default.yaml)
+cp "${PROJECT_DIR}/config.examples/default.yaml" \
    "${SCRIPT_DIR}/${PACKAGE_DIR}/usr/share/${PACKAGE}/config.yaml"
 
 # Exemples de configuration (y compris sous-répertoires)
