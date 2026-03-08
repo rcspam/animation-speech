@@ -5,9 +5,11 @@
 Configurable transparent overlay for Wayland that displays visual animations during speech. Controlled via UNIX signals, making it easy to integrate with any TTS, STT, or audio backend.
 
 <p align="center">
-  <img src="demo.gif" alt="Overlay animation demo" width="520">
+  <a href="https://youtu.be/jBxEvPDNPWM">
+    <img src="https://img.youtube.com/vi/jBxEvPDNPWM/maxresdefault.jpg" alt="Demo video" width="600">
+  </a>
   <br>
-  <em>Overlay with rounded background — displayed over KDE desktop</em>
+  <em>▶ Watch the demo on YouTube — overlay with rounded background on KDE desktop</em>
 </p>
 
 <p align="center">
