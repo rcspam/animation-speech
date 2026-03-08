@@ -5,9 +5,11 @@
 Configurable transparent overlay for Wayland that displays visual animations during speech. Controlled via UNIX signals, making it easy to integrate with any TTS, STT, or audio backend.
 
 <p align="center">
-  <img src="overlay-screen.png" alt="Overlay animation on desktop" width="520">
+  <a href="https://github.com/rcspam/animation-speech/releases/download/v1.2.0/demo.mp4">
+    <img src="overlay-screen.png" alt="Overlay animation on desktop" width="520">
+  </a>
   <br>
-  <em>Overlay with rounded background — displayed over KDE desktop</em>
+  <em>Overlay with rounded background — displayed over KDE desktop (▶ click for video demo)</em>
 </p>
 
 <p align="center">
