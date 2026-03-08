@@ -17,9 +17,9 @@ https://github.com/user-attachments/assets/4aff68b7-174d-4485-b823-671fd3426835
 </p>
 
 <p align="center">
-  <img src="screenshot.png" alt="Visual selector (--choose)" width="1154">
+  <img src="overlay-screen.png" alt="Overlay animation on desktop" width="520">
   <br>
-  <em>Interactive visual selector (<code>--choose</code>) — all animations, colors, and parameters are fully configurable</em>
+  <em>Overlay with rounded background — displayed over KDE desktop</em>
 </p>
 
 ## How it works
