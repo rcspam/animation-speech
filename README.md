@@ -4,6 +4,10 @@
 
 Configurable transparent overlay for Wayland that displays visual animations during speech. Controlled via UNIX signals, making it easy to integrate with any TTS, STT, or audio backend.
 
+
+https://github.com/user-attachments/assets/4aff68b7-174d-4485-b823-671fd3426835
+
+
 <p align="center">
   <a href="https://youtu.be/jBxEvPDNPWM">
     <img src="https://img.youtube.com/vi/jBxEvPDNPWM/maxresdefault.jpg" alt="Demo video" width="600">
