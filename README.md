@@ -9,14 +9,6 @@ https://github.com/user-attachments/assets/4aff68b7-174d-4485-b823-671fd3426835
 
 
 <p align="center">
-  <a href="https://youtu.be/jBxEvPDNPWM">
-    <img src="https://img.youtube.com/vi/jBxEvPDNPWM/maxresdefault.jpg" alt="Demo video" width="600">
-  </a>
-  <br>
-  <em>▶ Watch the demo on YouTube — overlay with rounded background on KDE desktop</em>
-</p>
-
-<p align="center">
   <img src="overlay-screen.png" alt="Overlay animation on desktop" width="520">
   <br>
   <em>Overlay with rounded background — displayed over KDE desktop</em>
