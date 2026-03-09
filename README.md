@@ -34,7 +34,7 @@ Or send signals directly: `kill -SIGUSR1 $(cat "$PID_FILE")` / `kill -SIGUSR2 $(
 
 ## Features
 
-- **True Wayland overlay** via gtk-layer-shell (not a regular window)
+- **True Wayland overlay** via gtk-layer-shell (KDE Plasma, Sway, Hyprland, wlroots — not GNOME)
 - **Fully transparent** — only the animation is visible
 - **8 animation types** — wave, equalizer, soundwave, soundwave-curve, circular, circular-wave, circular-bars, particles
 - **Rounded background** — optional semi-transparent capsule-style backdrop
@@ -95,7 +95,7 @@ sudo dnf install python3-gobject gtk3 python3-pyyaml gtk-layer-shell
 ```
 </details>
 
-> Without gtk-layer-shell, the program falls back to a regular window instead of a transparent overlay.
+> **Compositor compatibility:** Requires a Wayland compositor supporting the `wlr-layer-shell` protocol: **KDE Plasma**, **Sway**, **Hyprland**, **river**, and other wlroots-based compositors. **GNOME (Mutter) is not supported** — Mutter does not implement the layer-shell protocol, so the transparent overlay cannot work.
 
 ## Quick start
 
