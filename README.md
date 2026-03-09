@@ -34,7 +34,7 @@ Or send signals directly: `kill -SIGUSR1 $(cat "$PID_FILE")` / `kill -SIGUSR2 $(
 
 ## Features
 
-- **True Wayland overlay** via gtk-layer-shell (KDE Plasma, Sway, Hyprland, wlroots — not GNOME)
+- **True Wayland overlay** via gtk-layer-shell (KDE Plasma, Sway, Hyprland, wlroots — **not GNOME**)
 - **Fully transparent** — only the animation is visible, with click passthrough
 - **8 animation types** — wave, equalizer, soundwave, soundwave-curve, circular, circular-wave, circular-bars, particles
 - **Rounded background** — optional semi-transparent capsule-style backdrop
