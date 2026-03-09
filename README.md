@@ -35,7 +35,7 @@ Or send signals directly: `kill -SIGUSR1 $(cat "$PID_FILE")` / `kill -SIGUSR2 $(
 ## Features
 
 - **True Wayland overlay** via gtk-layer-shell (KDE Plasma, Sway, Hyprland, wlroots — not GNOME)
-- **Fully transparent** — only the animation is visible
+- **Fully transparent** — only the animation is visible, with click passthrough
 - **8 animation types** — wave, equalizer, soundwave, soundwave-curve, circular, circular-wave, circular-bars, particles
 - **Rounded background** — optional semi-transparent capsule-style backdrop
 - **Microphone modulation** — animation reacts to mic input via PyAudio (optional)
@@ -43,7 +43,7 @@ Or send signals directly: `kill -SIGUSR1 $(cat "$PID_FILE")` / `kill -SIGUSR2 $(
 - **Multi-format colors** — hex (`#ED8796`), hex+alpha (`#ED8796F2`), short hex (`#F00`), float arrays
 - **Visual selector** — `--choose` to preview and pick configs interactively
 - **9 screen positions** — bottom, top, center, corners
-- **i18n** — English and French
+- **i18n** — English and French, easily extensible via gettext
 
 ## Installation
 
