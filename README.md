@@ -34,7 +34,7 @@ Or send signals directly: `kill -SIGUSR1 $(cat "$PID_FILE")` / `kill -SIGUSR2 $(
 
 ## Features
 
-- **True Wayland overlay** via gtk-layer-shell (KDE Plasma, Sway, Hyprland, wlroots — **not GNOME**)
+- **True Wayland overlay** via gtk-layer-shell (KDE Plasma, Sway, Hyprland, wlroots — see [compatibility](#compositor-compatibility))
 - **Fully transparent** — only the animation is visible, with click passthrough
 - **8 animation types** — wave, equalizer, soundwave, soundwave-curve, circular, circular-wave, circular-bars, particles
 - **Rounded background** — optional semi-transparent capsule-style backdrop
@@ -95,7 +95,17 @@ sudo dnf install python3-gobject gtk3 python3-pyyaml gtk-layer-shell
 ```
 </details>
 
-> **Compositor compatibility:** Requires a Wayland compositor supporting the `wlr-layer-shell` protocol: **KDE Plasma**, **Sway**, **Hyprland**, **river**, and other wlroots-based compositors. **GNOME (Mutter) is not supported** — Mutter does not implement the layer-shell protocol, so the transparent overlay cannot work.
+> [!IMPORTANT]
+> ### Compositor compatibility
+>
+> Animation Speech requires the **`wlr-layer-shell`** Wayland protocol to display transparent overlays.
+>
+> | Status | Compositors |
+> |---|---|
+> | **Supported** | KDE Plasma (KWin), Sway, Hyprland, river, Wayfire, labwc, and other wlroots-based compositors |
+> | **Not supported** | GNOME (Mutter), Cinnamon (Muffin/Mutter fork), Budgie, COSMIC (planned support), Enlightenment |
+>
+> Unsupported compositors do not implement the `wlr-layer-shell` protocol, so the transparent overlay cannot be created. GNOME and Cinnamon both use Mutter (or a fork of it), which has no plans to add this protocol. On X11, `gtk-layer-shell` is not available at all.
 
 ## Quick start
 
