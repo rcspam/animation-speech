@@ -36,8 +36,8 @@ Version: 1.2.0
 Section: graphics
 Priority: optional
 Architecture: all
-Depends: python3, python3-gi, python3-gi-cairo, gir1.2-gtk-3.0, python3-yaml, libgtk-layer-shell0, gir1.2-gtklayershell-0.1
-Recommends: python3-pyaudio
+Depends: python3, python3-gi, python3-gi-cairo, gir1.2-gtk-3.0, python3-yaml, libgtk-layer-shell0, gir1.2-gtklayershell-0.1, procps, gettext-base
+Recommends: python3-pyaudio, pulseaudio-utils | pipewire-pulse, alsa-utils
 Maintainer: Rapha <rapha@local>
 Description: Animation de parole pour Wayland
  Overlay transparent configurable qui affiche une animation
@@ -155,10 +155,6 @@ echo "En cas de dépendances manquantes:"
 echo "  sudo apt-get install -f"
 echo ""
 
-# Nettoyage optionnel
-read -p "Supprimer les fichiers temporaires ? [o/N] " -n 1 -r
-echo
-if [[ $REPLY =~ ^[Oo]$ ]]; then
-    rm -rf "${SCRIPT_DIR}/${BUILD_DIR}"
-    echo "Fichiers temporaires supprimés."
-fi
+# Nettoyage automatique
+rm -rf "${SCRIPT_DIR}/${BUILD_DIR}"
+echo "Fichiers temporaires supprimés."

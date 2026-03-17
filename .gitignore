@@ -1,9 +1,11 @@
 # Build artifacts
 *.pyz
 *.deb
+*.rpm
 *.tar.gz
 .zipapp-build/
 .dist-build/
+.rpm-src-build/
 debian/build/
 
 # Python
