@@ -6,6 +6,7 @@ import random
 import signal
 import struct
 import subprocess
+import sys
 import threading
 import traceback
 
@@ -227,6 +228,12 @@ class SpeechAnimation(AnimationDrawMixin):
               left=margins['left'], right=margins['right']))
         print()
         print(_("Creating transparent overlay..."))
+
+        # Check layer-shell support before anything else
+        if not GtkLayerShell.is_supported():
+            self._show_unsupported_dialog()
+            return
+
         self.window = Gtk.Window()
 
         # Initialize layer shell
@@ -385,6 +392,49 @@ class SpeechAnimation(AnimationDrawMixin):
 
         # Quit via GLib.idle_add to avoid issues in signal handler
         GLib.idle_add(Gtk.main_quit)
+
+    def _show_unsupported_dialog(self):
+        """Show a dialog explaining that the compositor doesn't support layer-shell."""
+        desktop = os.environ.get('XDG_CURRENT_DESKTOP', _('Unknown'))
+        session = os.environ.get('XDG_SESSION_TYPE', _('Unknown'))
+
+        msg_primary = _("Compositor not supported")
+        msg_detail = _(
+            "Your environment ({desktop}, {session}) does not support the "
+            "Wayland Layer Shell protocol (zwlr_layer_shell_v1).\n\n"
+            "animation-speech requires this protocol to display a transparent "
+            "overlay above other windows.\n\n"
+            "Compatible Wayland compositors:\n"
+            "  - KDE Plasma (KWin)\n"
+            "  - Sway\n"
+            "  - Hyprland\n"
+            "  - Wayfire\n"
+            "  - river, labwc, wlroots-based\n\n"
+            "Wayland compositors without layer-shell support:\n"
+            "  - GNOME (Mutter) — uses a different protocol\n"
+            "  - Cinnamon (Muffin)\n"
+            "  - Budgie\n"
+            "  - COSMIC (not yet implemented)\n"
+            "  - Enlightenment\n\n"
+            "X11 is not supported (Wayland required)."
+        ).format(desktop=desktop, session=session)
+
+        print(msg_primary)
+        print(msg_detail)
+
+        dialog = Gtk.MessageDialog(
+            message_type=Gtk.MessageType.ERROR,
+            buttons=Gtk.ButtonsType.CLOSE,
+            text=msg_primary,
+            secondary_text=msg_detail,
+        )
+        dialog.set_title("animation-speech")
+        dialog.run()
+        dialog.destroy()
+
+        # Clean up PID file and exit
+        self.cleanup_pid_file()
+        sys.exit(1)
 
     def on_key_press(self, widget, event):
         """Handle key presses (Escape to cancel)"""
