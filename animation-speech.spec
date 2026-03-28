@@ -10,9 +10,9 @@ BuildArch:      noarch
 # ── Dépendances obligatoires ────────────────────────────────────────
 Requires:       python3
 Requires:       python3-gobject
-Requires:       python3-gobject-cairo
 
 %if 0%{?suse_version}
+Requires:       python3-gobject-cairo
 Requires:       gtk3
 Requires:       python3-PyYAML
 Requires:       gtk-layer-shell
@@ -20,6 +20,7 @@ Requires:       typelib-1_0-GtkLayerShell-0_1
 Requires:       procps
 Requires:       gettext-runtime
 %else
+# Fedora: cairo support is included in python3-gobject (no separate package)
 Requires:       gtk3
 Requires:       python3-pyyaml
 Requires:       gtk-layer-shell
