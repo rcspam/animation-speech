@@ -34,8 +34,18 @@ class SpeechAnimation(AnimationDrawMixin):
         runtime_dir = os.environ.get('XDG_RUNTIME_DIR', '/tmp')
         self.pid_file = os.path.join(runtime_dir, 'speech-animation.pid')
         self.window = None
+        # What the handlers below touch, before they can possibly run.
+        self.is_animating = False
+        self.audio_enabled = False
+        self.on_escape_cmd = None
 
-        # Create PID file first
+        # Handlers first, PID file second. The PID file is what tells the
+        # outside world it may signal us, and until SIGUSR1 has a handler its
+        # default action is to kill the process. animation-speech-ctl launch
+        # signals 0.2 s after the file appears, while the window setup that
+        # used to come first takes longer than that on a cold start, so the
+        # overlay could be shot down before it ever opened.
+        self.setup_signals(quiet=True)
         self.create_pid_file()
 
         try:
@@ -48,7 +58,10 @@ class SpeechAnimation(AnimationDrawMixin):
             # Command to execute on Escape (enables exclusive keyboard grab)
             self.on_escape_cmd = (cli_overrides or {}).get('on_escape_cmd')
 
-            self.is_animating = False
+            # is_animating is initialised at the top of __init__, before the
+            # signal handlers are installed. Re-setting it here would throw
+            # away a SIGUSR1 that arrived while the config was loading, and
+            # the overlay would come up without ever animating.
             self.frame = 0
             self.bars = []
             self.particles = []
@@ -385,14 +398,22 @@ class SpeechAnimation(AnimationDrawMixin):
         GtkLayerShell.set_margin(self.window, GtkLayerShell.Edge.LEFT, max(margins['left'], 10))
         GtkLayerShell.set_margin(self.window, GtkLayerShell.Edge.RIGHT, max(margins['right'], 10))
 
-    def setup_signals(self):
-        """Set up UNIX signals for start/stop"""
+    def setup_signals(self, quiet=False):
+        """Set up UNIX signals for start/stop.
+
+        Called twice: once from __init__ before the PID file exists, to close
+        the window where a SIGUSR1 would kill us, and once after the overlay
+        is up to print the usage hints. Installing a handler twice is a no-op.
+        """
         signal.signal(signal.SIGUSR1, self.start_animation)
         signal.signal(signal.SIGUSR2, self.stop_animation)
 
         # Handlers for clean exit
         signal.signal(signal.SIGTERM, self.cleanup_and_exit)
         signal.signal(signal.SIGINT, self.cleanup_and_exit)
+
+        if quiet:
+            return
 
         print(_("\nPID: {pid}").format(pid=os.getpid()))
         if self.pid_file:
@@ -485,27 +506,40 @@ class SpeechAnimation(AnimationDrawMixin):
             self.cleanup_and_exit(signal.SIGTERM, None)
         return True  # Consume all key events
 
-    def start_animation(self, signum, frame):
-        """Start animation (SIGUSR1 signal)"""
-        print(_("Animation started"))
-        self.is_animating = True
+    def _show_overlay(self):
+        """Map the overlay again. Runs on the main loop, never in a handler."""
         if self.window:
             self.window.show()
             # GTK builds a brand new wl_surface on every map and does not carry
             # the input shape over, so from the second start on the overlay
             # would swallow every click landing on it. Re-assert it here.
             self.window.input_shape_combine_region(cairo.Region())
+        return False  # one-shot idle callback
+
+    def _hide_overlay(self):
+        """Unmap the overlay. Runs on the main loop, never in a handler."""
+        if self.window:
+            self.window.hide()
+        return False
+
+    def start_animation(self, signum, frame):
+        """Start animation (SIGUSR1 signal)"""
+        print(_("Animation started"))
+        self.is_animating = True
+        # Touching the window from the signal handler would reach into GTK at
+        # whatever point the interpreter happened to be, which is the mistake
+        # cleanup_and_exit already avoids for Gtk.main_quit.
+        GLib.idle_add(self._show_overlay)
 
     def stop_animation(self, signum, frame):
         """Stop animation (SIGUSR2 signal)"""
         print(_("Animation stopped"))
         self.is_animating = False
-        if self.window:
-            # Unmap, don't just stop drawing. A mapped overlay keeps its
-            # exclusive keyboard grab (--on-escape) and stays in the way while
-            # being invisible, which is what dictee users were left with after
-            # every dictation (dictee issue #34).
-            self.window.hide()
+        # Unmap, don't just stop drawing. A mapped overlay keeps its exclusive
+        # keyboard grab (--on-escape) and stays in the way while being
+        # invisible, which is what dictee users were left with after every
+        # dictation (dictee issue #34).
+        GLib.idle_add(self._hide_overlay)
 
     def update_animation(self):
         """Update animation state"""
