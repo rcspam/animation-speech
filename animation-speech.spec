@@ -1,5 +1,5 @@
 Name:           animation-speech
-Version:        1.2.0
+Version:        1.2.1
 Release:        1%{?dist}
 Summary:        Transparent speech animation overlay for Wayland
 License:        GPL-3.0-or-later

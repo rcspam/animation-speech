@@ -19,10 +19,19 @@ fi
 
 PID_FILE="${XDG_RUNTIME_DIR:-/tmp}/speech-animation.pid"
 
+# Is this PID really our overlay? A PID file left behind by a kill -9 keeps
+# pointing at a number the kernel is free to hand out to anything else, and
+# `quit` would then SIGTERM a stranger's process.
+is_ours() {
+    [ -n "$1" ] || return 1
+    kill -0 "$1" 2>/dev/null || return 1
+    tr '\0' ' ' < "/proc/$1/cmdline" 2>/dev/null | grep -q 'animation-speech'
+}
+
 get_pid() {
     if [ -f "$PID_FILE" ]; then
         PID=$(cat "$PID_FILE" 2>/dev/null)
-        if kill -0 "$PID" 2>/dev/null; then
+        if is_ours "$PID"; then
             echo "$PID"
             return 0
         fi

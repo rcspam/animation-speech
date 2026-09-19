@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: animation-speech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-05 09:15+0100\n"
+"POT-Creation-Date: 2026-09-19 16:48+0200\n"
 "PO-Revision-Date: 2026-03-04 20:00+0100\n"
 "Last-Translator: Rapha <rapha@local>\n"
 "Language-Team: French\n"
@@ -16,94 +16,99 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: animation_speech/animation.py:87
+#: animation_speech/animation.py:122
+#, python-brace-format
+msgid "Already running (PID {pid}), nothing to start."
+msgstr "Déjà en cours d'exécution (PID {pid}), rien à démarrer."
+
+#: animation_speech/animation.py:129
 #, python-brace-format
 msgid "PID file created: {path}"
 msgstr "Fichier PID créé : {path}"
 
-#: animation_speech/animation.py:89
+#: animation_speech/animation.py:131
 #, python-brace-format
 msgid "Cannot create PID file: {error}"
 msgstr "Impossible de créer le fichier PID : {error}"
 
-#: animation_speech/animation.py:103
+#: animation_speech/animation.py:145
 msgid "pyaudio not installed - audio capture disabled"
 msgstr "pyaudio non installé - capture audio désactivée"
 
-#: animation_speech/animation.py:104
+#: animation_speech/animation.py:146
 msgid ""
 "  Install with: sudo apt install -y python3-pyaudio || pip install pyaudio"
 msgstr ""
 "  Installer avec : sudo apt install -y python3-pyaudio || pip install pyaudio"
 
-#: animation_speech/animation.py:111
+#: animation_speech/animation.py:153
 msgid "Audio capture enabled"
 msgstr "Capture audio activée"
 
-#: animation_speech/animation.py:146
+#: animation_speech/animation.py:188
 #, python-brace-format
 msgid "Microphone opened (sensitivity: {val})"
 msgstr "Microphone ouvert (sensibilité : {val})"
 
-#: animation_speech/animation.py:163
+#: animation_speech/animation.py:205
 #, python-brace-format
 msgid "Audio capture error: {error}"
 msgstr "Erreur de capture audio : {error}"
 
-#: animation_speech/animation.py:175
+#: animation_speech/animation.py:217
 #, python-brace-format
 msgid "Unknown animation type: '{type}' (valid: {valid}). Using 'wave'."
 msgstr ""
 "Type d'animation inconnu : '{type}' (valides : {valid}). Utilisation de "
 "'wave'."
 
-#: animation_speech/animation.py:220
+#: animation_speech/animation.py:262
 msgid "=== Overlay configuration ==="
 msgstr "=== Configuration de l'overlay ==="
 
-#: animation_speech/animation.py:221
+#: animation_speech/animation.py:263
 #, python-brace-format
 msgid "Type: {type}"
 msgstr "Type : {type}"
 
-#: animation_speech/animation.py:222
+#: animation_speech/animation.py:264
 #, python-brace-format
 msgid "Position: {pos}"
 msgstr "Position : {pos}"
 
-#: animation_speech/animation.py:223
+#: animation_speech/animation.py:265
 #, python-brace-format
 msgid "Dimensions: {w}x{h}px"
 msgstr "Dimensions : {w}x{h}px"
 
-#: animation_speech/animation.py:225
+#: animation_speech/animation.py:267
 #, python-brace-format
 msgid "Margins: top={top}px, bottom={bottom}px, left={left}px, right={right}px"
 msgstr ""
 "Marges : haut={top}px, bas={bottom}px, gauche={left}px, droite={right}px"
 
-#: animation_speech/animation.py:229
+#: animation_speech/animation.py:271
 msgid "Creating transparent overlay..."
 msgstr "Création de l'overlay transparent..."
 
-#: animation_speech/animation.py:235
+#: animation_speech/animation.py:283
 msgid "Layer shell enabled"
 msgstr "Layer shell activé"
 
-#: animation_speech/animation.py:250
+#: animation_speech/animation.py:298
 msgid "Exclusive keyboard grab (Escape to cancel)"
 msgstr "Grab clavier exclusif (Échap pour annuler)"
 
-#: animation_speech/animation.py:274
+#: animation_speech/animation.py:322
 msgid "Transparency enabled"
 msgstr "Transparence activée"
 
-#: animation_speech/animation.py:290
+#: animation_speech/animation.py:340
 #, python-brace-format
 msgid "Overlay displayed ({w}x{h})"
 msgstr "Overlay affiché ({w}x{h})"
 
-#: animation_speech/animation.py:347
+#: animation_speech/animation.py:397
 #, python-brace-format
 msgid ""
 "\n"
@@ -112,22 +117,22 @@ msgstr ""
 "\n"
 "PID : {pid}"
 
-#: animation_speech/animation.py:349
+#: animation_speech/animation.py:399
 #, python-brace-format
 msgid "PID file: {path}"
 msgstr "Fichier PID : {path}"
 
-#: animation_speech/animation.py:350
+#: animation_speech/animation.py:400
 #, python-brace-format
 msgid "Send 'kill -SIGUSR1 {pid}' to start"
 msgstr "Envoyer 'kill -SIGUSR1 {pid}' pour démarrer"
 
-#: animation_speech/animation.py:351
+#: animation_speech/animation.py:401
 #, python-brace-format
 msgid "Send 'kill -SIGUSR2 {pid}' to stop\n"
 msgstr "Envoyer 'kill -SIGUSR2 {pid}' pour arrêter\n"
 
-#: animation_speech/animation.py:356
+#: animation_speech/animation.py:406
 #, python-brace-format
 msgid ""
 "\n"
@@ -136,41 +141,75 @@ msgstr ""
 "\n"
 "{signal} reçu, nettoyage..."
 
-#: animation_speech/animation.py:361
+#: animation_speech/animation.py:411
 msgid "Audio capture stopped"
 msgstr "Capture audio arrêtée"
 
-#: animation_speech/animation.py:369
+#: animation_speech/animation.py:419
 msgid "Destroying window..."
 msgstr "Destruction de la fenêtre..."
 
-#: animation_speech/animation.py:374
+#: animation_speech/animation.py:424
 #, python-brace-format
 msgid "Error destroying window: {error}"
 msgstr "Erreur lors de la destruction de la fenêtre : {error}"
 
-#: animation_speech/animation.py:380
+#: animation_speech/animation.py:430
 #, python-brace-format
 msgid "PID file removed: {path}"
 msgstr "Fichier PID supprimé : {path}"
 
-#: animation_speech/animation.py:382
+#: animation_speech/animation.py:432
 msgid "Cleanup complete, goodbye!"
 msgstr "Nettoyage terminé, au revoir !"
 
-#: animation_speech/animation.py:390
+#: animation_speech/animation.py:439 animation_speech/animation.py:440
+msgid "Unknown"
+msgstr ""
+
+#: animation_speech/animation.py:442
+msgid "Compositor not supported"
+msgstr ""
+
+#: animation_speech/animation.py:444
+#, python-brace-format
+msgid ""
+"Your environment ({desktop}, {session}) does not support the Wayland Layer "
+"Shell protocol (zwlr_layer_shell_v1).\n"
+"\n"
+"animation-speech requires this protocol to display a transparent overlay "
+"above other windows.\n"
+"\n"
+"Compatible Wayland compositors:\n"
+"  - KDE Plasma (KWin)\n"
+"  - Sway\n"
+"  - Hyprland\n"
+"  - Wayfire\n"
+"  - river, labwc, wlroots-based\n"
+"\n"
+"Wayland compositors without layer-shell support:\n"
+"  - GNOME (Mutter) — uses a different protocol\n"
+"  - Cinnamon (Muffin)\n"
+"  - Budgie\n"
+"  - COSMIC (not yet implemented)\n"
+"  - Enlightenment\n"
+"\n"
+"X11 is not supported (Wayland required)."
+msgstr ""
+
+#: animation_speech/animation.py:483
 msgid "Escape pressed, executing cancel command..."
 msgstr "Échap pressé, exécution de la commande d'annulation..."
 
-#: animation_speech/animation.py:397
+#: animation_speech/animation.py:490
 msgid "Animation started"
 msgstr "Animation démarrée"
 
-#: animation_speech/animation.py:402
+#: animation_speech/animation.py:501
 msgid "Animation stopped"
 msgstr "Animation arrêtée"
 
-#: animation_speech/animation.py:484
+#: animation_speech/animation.py:592
 msgid ""
 "\n"
 "Keyboard interrupt (Ctrl+C), stopping..."
@@ -178,7 +217,7 @@ msgstr ""
 "\n"
 "Interruption clavier (Ctrl+C), arrêt..."
 
-#: animation_speech/animation.py:486
+#: animation_speech/animation.py:594
 #, python-brace-format
 msgid ""
 "\n"
@@ -187,7 +226,7 @@ msgstr ""
 "\n"
 "Erreur inattendue : {error}"
 
-#: animation_speech/animation.py:489
+#: animation_speech/animation.py:597
 msgid "Final cleanup..."
 msgstr "Nettoyage final..."
 
@@ -540,40 +579,48 @@ msgid "System - examples"
 msgstr "Système - exemples"
 
 #: animation_speech/main.py:31
+msgid "System (local) - main"
+msgstr ""
+
+#: animation_speech/main.py:32
+msgid "System (local) - examples"
+msgstr ""
+
+#: animation_speech/main.py:33
 msgid "Script - main"
 msgstr "Script - principales"
 
-#: animation_speech/main.py:32
+#: animation_speech/main.py:34
 msgid "Script - examples"
 msgstr "Script - exemples"
 
-#: animation_speech/main.py:55
+#: animation_speech/main.py:57
 msgid "No configuration found"
 msgstr "Aucune configuration trouvée"
 
-#: animation_speech/main.py:59
+#: animation_speech/main.py:61
 msgid ""
 "\\u2551          Available configurations                        \\u2551"
 msgstr ""
 "\\u2551          Configurations disponibles                      \\u2551"
 
-#: animation_speech/main.py:86 control.sh:124 debian/animation-speech-ctl:125
+#: animation_speech/main.py:88 debian/animation-speech-ctl:160
 msgid "Usage:"
 msgstr "Utilisation :"
 
-#: animation_speech/main.py:87
+#: animation_speech/main.py:89
 msgid "   animation-speech NAME"
 msgstr "   animation-speech NOM"
 
-#: animation_speech/main.py:89
+#: animation_speech/main.py:91
 msgid "   Examples:"
 msgstr "   Exemples :"
 
-#: animation_speech/main.py:151
+#: animation_speech/main.py:147
 msgid "Speech animation for Wayland controlled by UNIX signals"
 msgstr "Animation de parole pour Wayland contrôlée par signaux UNIX"
 
-#: animation_speech/main.py:153
+#: animation_speech/main.py:149
 #, python-format
 msgid ""
 "\n"
@@ -624,82 +671,82 @@ msgstr ""
 "  4. Répertoire du script/config.examples/\n"
 "        "
 
-#: animation_speech/main.py:176
+#: animation_speech/main.py:172
 msgid "YAML configuration file (default: config.yaml)"
 msgstr "Fichier de configuration YAML (défaut : config.yaml)"
 
-#: animation_speech/main.py:180
+#: animation_speech/main.py:176
 msgid "List all available configurations"
 msgstr "Lister toutes les configurations disponibles"
 
-#: animation_speech/main.py:182
+#: animation_speech/main.py:178
 msgid "Open visual selector (optional filter, e.g.: --choose kurve)"
 msgstr "Ouvrir le sélecteur visuel (filtre optionnel, ex : --choose kurve)"
 
-#: animation_speech/main.py:186
+#: animation_speech/main.py:182
 msgid "Animation width in pixels"
 msgstr "Largeur de l'animation en pixels"
 
-#: animation_speech/main.py:188
+#: animation_speech/main.py:184
 msgid "Animation height in pixels"
 msgstr "Hauteur de l'animation en pixels"
 
-#: animation_speech/main.py:193
+#: animation_speech/main.py:189
 msgid "Overlay position on screen"
 msgstr "Position de l'overlay sur l'écran"
 
-#: animation_speech/main.py:195
+#: animation_speech/main.py:191
 msgid "Margin from top of screen (in pixels)"
 msgstr "Marge depuis le haut de l'écran (en pixels)"
 
-#: animation_speech/main.py:197
+#: animation_speech/main.py:193
 msgid "Margin from bottom of screen (in pixels)"
 msgstr "Marge depuis le bas de l'écran (en pixels)"
 
-#: animation_speech/main.py:199
+#: animation_speech/main.py:195
 msgid "Margin from left of screen (in pixels)"
 msgstr "Marge depuis la gauche de l'écran (en pixels)"
 
-#: animation_speech/main.py:201
+#: animation_speech/main.py:197
 msgid "Margin from right of screen (in pixels)"
 msgstr "Marge depuis la droite de l'écran (en pixels)"
 
-#: animation_speech/main.py:205
+#: animation_speech/main.py:201
 msgid "Animation speed (0.5=slow, 2=normal, 5=fast)"
 msgstr "Vitesse de l'animation (0.5=lent, 2=normal, 5=rapide)"
 
-#: animation_speech/main.py:207
+#: animation_speech/main.py:203
 msgid "Number of curves/circles (default: 8 for wave, 12 for circular)"
 msgstr "Nombre de courbes/cercles (défaut : 8 pour wave, 12 pour circular)"
 
-#: animation_speech/main.py:211
+#: animation_speech/main.py:207
 msgid "Enable rounded background (cartouche)"
 msgstr "Activer le fond arrondi (cartouche)"
 
-#: animation_speech/main.py:213
+#: animation_speech/main.py:209
 msgid "Disable rounded background"
 msgstr "Désactiver le fond arrondi"
 
-#: animation_speech/main.py:215
+#: animation_speech/main.py:211
 msgid "Rounded background opacity (0.0=invisible, 1.0=opaque, default: 0.85)"
 msgstr "Opacité du fond arrondi (0.0=invisible, 1.0=opaque, défaut : 0.85)"
 
-#: animation_speech/main.py:219
+#: animation_speech/main.py:215
 msgid "Enable microphone modulation"
 msgstr "Activer la modulation par microphone"
 
-#: animation_speech/main.py:221
+#: animation_speech/main.py:217
 msgid "Microphone sensitivity (default: 1.5)"
 msgstr "Sensibilité du micro (défaut : 1.5)"
 
-#: animation_speech/main.py:223
+#: animation_speech/main.py:219
 msgid ""
 "Shell command to execute on Escape key (enables exclusive keyboard grab)"
 msgstr ""
 "Commande shell à exécuter quand Échap est pressé (active le grab clavier "
 "exclusif)"
 
-#: animation_speech/main.py:276
+#: animation_speech/main.py:272
 #, python-brace-format
 msgid ""
 "\n"
@@ -708,12 +755,12 @@ msgstr ""
 "\n"
 "Erreur : Fichier introuvable - {error}"
 
-#: animation_speech/main.py:277
+#: animation_speech/main.py:273
 #, python-brace-format
 msgid "File searched: '{config}'"
 msgstr "Fichier recherché : '{config}'"
 
-#: animation_speech/main.py:278
+#: animation_speech/main.py:274
 msgid ""
 "\n"
 "Locations checked:"
@@ -721,11 +768,11 @@ msgstr ""
 "\n"
 "Emplacements vérifiés :"
 
-#: animation_speech/main.py:279
+#: animation_speech/main.py:275
 msgid "  - Current directory"
 msgstr "  - Répertoire courant"
 
-#: animation_speech/main.py:285
+#: animation_speech/main.py:281
 #, python-brace-format
 msgid ""
 "\n"
@@ -734,12 +781,12 @@ msgstr ""
 "\n"
 "Erreur de configuration YAML : {error}"
 
-#: animation_speech/main.py:286
+#: animation_speech/main.py:282
 #, python-brace-format
 msgid "Check the syntax of '{config}'"
 msgstr "Vérifiez la syntaxe de '{config}'"
 
-#: animation_speech/main.py:289
+#: animation_speech/main.py:285
 msgid ""
 "\n"
 "Interrupted by user"
@@ -747,7 +794,7 @@ msgstr ""
 "\n"
 "Interruption par l'utilisateur"
 
-#: animation_speech/main.py:292
+#: animation_speech/main.py:288
 #, python-brace-format
 msgid ""
 "\n"
@@ -756,109 +803,111 @@ msgstr ""
 "\n"
 "Erreur fatale : {error}"
 
-#: control.sh:40 control.sh:116 debian/animation-speech-ctl:41
-#: debian/animation-speech-ctl:117
+#: debian/animation-speech-ctl:50 debian/animation-speech-ctl:152
 msgid "No running animation instance"
 msgstr "Aucune instance d'animation en cours"
 
-#: control.sh:41 control.sh:118 debian/animation-speech-ctl:42
-#: debian/animation-speech-ctl:119
+#: debian/animation-speech-ctl:51 debian/animation-speech-ctl:154
 msgid "Start one first:"
 msgstr "Lancez-en une d'abord :"
 
-#: control.sh:48 debian/animation-speech-ctl:49
+#: debian/animation-speech-ctl:58
 msgid "Starting animation (PID: %s)..."
 msgstr "Démarrage de l'animation (PID : %s)..."
 
-#: control.sh:50 control.sh:72 debian/animation-speech-ctl:51
-#: debian/animation-speech-ctl:73
+#: debian/animation-speech-ctl:60 debian/animation-speech-ctl:82
 msgid "SIGUSR1 signal sent"
 msgstr "Signal SIGUSR1 envoyé"
 
-#: control.sh:59 debian/animation-speech-ctl:60
+#: debian/animation-speech-ctl:69
 msgid "Stopping animation..."
 msgstr "Arrêt de l'animation..."
 
-#: control.sh:61 debian/animation-speech-ctl:62
+#: debian/animation-speech-ctl:71
 msgid "SIGUSR2 signal sent (PID: %s)"
 msgstr "Signal SIGUSR2 envoyé (PID : %s)"
 
-#: control.sh:70 debian/animation-speech-ctl:71
+#: debian/animation-speech-ctl:80
 msgid "Toggling animation (PID: %s)..."
 msgstr "Basculement de l'animation (PID : %s)..."
 
-#: control.sh:81 debian/animation-speech-ctl:82
+#: debian/animation-speech-ctl:110
+msgid "Échec du lancement d'animation-speech"
+msgstr ""
+
+#: debian/animation-speech-ctl:117
 msgid "Shutting down application (PID: %s)..."
 msgstr "Arrêt complet de l'application (PID : %s)..."
 
-#: control.sh:86 debian/animation-speech-ctl:87
+#: debian/animation-speech-ctl:122
 msgid "Application stopped cleanly"
 msgstr "Application arrêtée proprement"
 
-#: control.sh:93 debian/animation-speech-ctl:94
+#: debian/animation-speech-ctl:129
 msgid "Force killing..."
 msgstr "Arrêt forcé..."
 
-#: control.sh:98 debian/animation-speech-ctl:99
+#: debian/animation-speech-ctl:134
 msgid "Application stopped"
 msgstr "Application arrêtée"
 
-#: control.sh:107 debian/animation-speech-ctl:108
+#: debian/animation-speech-ctl:143
 msgid "Animation is running"
 msgstr "Animation en cours"
 
-#: control.sh:109 debian/animation-speech-ctl:110
+#: debian/animation-speech-ctl:145
 msgid "PID file:"
 msgstr "Fichier PID :"
 
-#: control.sh:111 debian/animation-speech-ctl:112
+#: debian/animation-speech-ctl:147
 msgid "Available commands:"
 msgstr "Commandes disponibles :"
 
-#: control.sh:112 control.sh:127 debian/animation-speech-ctl:113
-#: debian/animation-speech-ctl:128
+#: debian/animation-speech-ctl:148 debian/animation-speech-ctl:163
 msgid "Start animation"
 msgstr "Démarrer l'animation"
 
-#: control.sh:113 control.sh:128 debian/animation-speech-ctl:114
-#: debian/animation-speech-ctl:129
+#: debian/animation-speech-ctl:149 debian/animation-speech-ctl:164
 msgid "Stop animation"
 msgstr "Arrêter l'animation"
 
-#: control.sh:114 control.sh:130 debian/animation-speech-ctl:115
-#: debian/animation-speech-ctl:131
+#: debian/animation-speech-ctl:150 debian/animation-speech-ctl:167
 msgid "Quit application"
 msgstr "Quitter l'application"
 
-#: control.sh:124 debian/animation-speech-ctl:125
+#: debian/animation-speech-ctl:160
 msgid "command"
 msgstr "commande"
 
-#: control.sh:126 debian/animation-speech-ctl:127
+#: debian/animation-speech-ctl:162
 msgid "Commands:"
 msgstr "Commandes :"
 
-#: control.sh:129 debian/animation-speech-ctl:130
+#: debian/animation-speech-ctl:165
 msgid "Toggle animation"
 msgstr "Basculer l'animation"
 
-#: control.sh:131 debian/animation-speech-ctl:132
+#: debian/animation-speech-ctl:166
+msgid "Launch animation-speech if needed, then start"
+msgstr ""
+
+#: debian/animation-speech-ctl:168
 msgid "Show status"
 msgstr "Afficher l'état"
 
-#: control.sh:132 debian/animation-speech-ctl:133
+#: debian/animation-speech-ctl:169
 msgid "Show this help"
 msgstr "Afficher cette aide"
 
-#: control.sh:134 debian/animation-speech-ctl:135
+#: debian/animation-speech-ctl:171
 msgid "Examples:"
 msgstr "Exemples :"
 
-#: control.sh:139 debian/animation-speech-ctl:140
+#: debian/animation-speech-ctl:176
 msgid "Shortcuts:"
 msgstr "Raccourcis :"
 
-#: control.sh:166 debian/animation-speech-ctl:167
+#: debian/animation-speech-ctl:206
 msgid "Unknown command: %s"
 msgstr "Commande inconnue : %s"
 

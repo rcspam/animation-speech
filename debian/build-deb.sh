@@ -4,7 +4,7 @@
 
 set -e
 
-VERSION="1.2.0"
+VERSION="1.2.1"
 PACKAGE="animation-speech"
 ARCH="all"
 BUILD_DIR="build"
@@ -32,7 +32,7 @@ mkdir -p "${SCRIPT_DIR}/${PACKAGE_DIR}/usr/share/${PACKAGE}/config.examples"
 echo "Création du fichier control..."
 cat > "${SCRIPT_DIR}/${PACKAGE_DIR}/DEBIAN/control" << 'EOF'
 Package: animation-speech
-Version: 1.2.0
+Version: 1.2.1
 Section: graphics
 Priority: optional
 Architecture: all

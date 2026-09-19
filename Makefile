@@ -1,5 +1,5 @@
 DOMAIN = animation-speech
-VERSION = 1.2.0
+VERSION = 1.2.1
 LANGS = fr en
 POTFILE = locales/$(DOMAIN).pot
 SRCFILES = $(wildcard animation_speech/*.py)

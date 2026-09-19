@@ -80,8 +80,49 @@ class SpeechAnimation(AnimationDrawMixin):
             self.cleanup_pid_file()
             raise
 
+    def running_instance(self):
+        """PID of an overlay already running, or None.
+
+        A leftover PID file whose process is gone does not count.
+        """
+        try:
+            with open(self.pid_file) as f:
+                pid = int(f.read().strip())
+        except (OSError, ValueError):
+            return None
+        if pid == os.getpid():
+            return None
+        try:
+            os.kill(pid, 0)
+        except ProcessLookupError:
+            return None
+        except PermissionError:
+            pass  # alive, just not ours to signal
+        # The number may have been recycled since a kill -9 left that file
+        # behind. Refusing to start because an unrelated process now owns it
+        # would lock the overlay out for the rest of the session.
+        try:
+            with open(f"/proc/{pid}/cmdline", "rb") as f:
+                if b"animation-speech" not in f.read():
+                    return None
+        except OSError:
+            return None
+        return pid
+
     def create_pid_file(self):
-        """Create the PID file at startup"""
+        """Create the PID file at startup, refusing to be a second overlay.
+
+        There is one PID file, so a second instance used to overwrite it and
+        leave the first one unreachable: animation-speech-ctl could no longer
+        stop or quit it, and only `kill` got rid of the window it left on
+        screen (dictee issue #34).
+        """
+        other = self.running_instance()
+        if other is not None:
+            print(_("Already running (PID {pid}), nothing to start.").format(
+                pid=other))
+            self.pid_file = None  # not ours: never remove it on the way out
+            raise SystemExit(0)
         try:
             with open(self.pid_file, 'w') as f:
                 f.write(str(os.getpid()))
@@ -448,11 +489,23 @@ class SpeechAnimation(AnimationDrawMixin):
         """Start animation (SIGUSR1 signal)"""
         print(_("Animation started"))
         self.is_animating = True
+        if self.window:
+            self.window.show()
+            # GTK builds a brand new wl_surface on every map and does not carry
+            # the input shape over, so from the second start on the overlay
+            # would swallow every click landing on it. Re-assert it here.
+            self.window.input_shape_combine_region(cairo.Region())
 
     def stop_animation(self, signum, frame):
         """Stop animation (SIGUSR2 signal)"""
         print(_("Animation stopped"))
         self.is_animating = False
+        if self.window:
+            # Unmap, don't just stop drawing. A mapped overlay keeps its
+            # exclusive keyboard grab (--on-escape) and stays in the way while
+            # being invisible, which is what dictee users were left with after
+            # every dictation (dictee issue #34).
+            self.window.hide()
 
     def update_animation(self):
         """Update animation state"""
